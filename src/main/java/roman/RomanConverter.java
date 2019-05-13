@@ -1,9 +1,6 @@
 package roman;
 
 /**
- * Creado por: mmonteiro
- * miguelmonteiroclaveri@gmail.com
- * github.com/mmonteiroc
  * Paquete roman
  * Proyecto Calculadora
  */
