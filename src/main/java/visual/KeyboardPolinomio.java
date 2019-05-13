@@ -1,6 +1,7 @@
 package visual;
 
 import evaluator.Evaluator;
+import polinomios.Polynomial;
 
 import javax.swing.*;
 import java.awt.*;
@@ -47,13 +48,19 @@ public class KeyboardPolinomio {
 
     KeyboardPolinomio(final InterficieGrafica ig) {
 
-
         /*Acciones añadir numeros*/
+
 
         boton0.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                // if (ig.Entrada.getSize()){
+                System.out.println("entrada 1 tiene focus");
                 ig.Entrada.setText(ig.Entrada.getText() + "0");
+                // }else{
+                System.out.println("entrada 2 tiene focus");
+                ig.Entrada2.setText(ig.Entrada2.getText() + "0");
+                //}
             }
         });
         boton1.addActionListener(new ActionListener() {
@@ -162,9 +169,77 @@ public class KeyboardPolinomio {
                 ig.Entrada.setText(ig.Entrada.getText() + "^");
             }
         });
-
+        incognitaXButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ig.Entrada.setText(ig.Entrada.getText() + "x");
+            }
+        });
 
         /*Accion resultado*/
+        // Sumamos polinomios
+        sumarPolButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Polynomial polinomio1 = new Polynomial(ig.Entrada.getText());
+                Polynomial polinomio2 = new Polynomial(ig.Entrada2.getText());
+                Polynomial resultado = polinomio1.add(polinomio2);
+                ig.Salida.setText(resultado.toString());
+                saveStory("Operación " + ig.indexOperaciones + "  :  " + ig.Entrada.getText() + " + " + ig.Entrada2.getText() + " -- Suma->" + resultado.toString());
+
+            }
+        });
+
+        multiplicarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Polynomial polinomio1 = new Polynomial(ig.Entrada.getText());
+                Polynomial polinomio2 = new Polynomial(ig.Entrada2.getText());
+                Polynomial resultado = polinomio1.mult(polinomio2);
+                ig.Salida.setText(resultado.toString());
+                saveStory("Operación " + ig.indexOperaciones + "  :  " + ig.Entrada.getText() + " x " + ig.Entrada2.getText() + " -- multiplicación->" + resultado.toString());
+
+            }
+        });
+        dividirButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Polynomial polinomio1 = new Polynomial(ig.Entrada.getText());
+                Polynomial polinomio2 = new Polynomial(ig.Entrada2.getText());
+                Polynomial[] resultado = polinomio1.div(polinomio2);
+                String coef = resultado[0].toString();
+                String residu = resultado[1].toString();
+                ig.Salida.setText("Coef: " + coef + " - Residuo: " + residu);
+
+                saveStory("Operación " + ig.indexOperaciones + "  :  " + ig.Entrada.getText() + " / " + ig.Entrada2.getText() + " -- Division-> " + coef + "||" + residu);
+            }
+        });
+        raicesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Polynomial polinomio1 = new Polynomial(ig.Entrada.getText());
+                String s = "";
+                float[] resultado = polinomio1.roots();
+                if (resultado == null) {
+                    ig.Salida.setText("No tiene resultado");
+                } else {
+                    for (int i = 0; i < resultado.length; i++) {
+                        if (i + 1 >= resultado.length) {
+                            s += resultado[i];
+                        } else {
+                            s += resultado[i] + " || ";
+                        }
+                    }
+                    System.out.println(s);
+                    ig.Salida.setText(s.toString());
+                }
+
+
+                // Save part
+                saveStory("Operación " + ig.indexOperaciones + "  :  " + ig.Entrada.getText() + " -- roots --> " + s);
+            }
+        });
+
 
 
         /*Accion borrar*/
@@ -177,6 +252,10 @@ public class KeyboardPolinomio {
         });
 
 
+    }
+
+    void saveStory(String s) {
+        InterficieGrafica.historico.add(s);
     }
 
     public JPanel getPanelPrincipal() {
