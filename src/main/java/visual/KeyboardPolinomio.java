@@ -3,6 +3,7 @@ package visual;
 import evaluator.Evaluator;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,7 +14,8 @@ import java.awt.event.ActionListener;
  * Paquete visual
  * Proyecto Calculadora
  */
-public class KeyboardNormal {
+public class KeyboardPolinomio {
+    private JPanel PanelPrincipal;
     private JPanel KeypadNormal;
     private JButton boton1;
     private JButton Suma;
@@ -32,17 +34,18 @@ public class KeyboardNormal {
     private JButton multiplicacion;
     private JButton dividir;
     private JButton borrar;
-    private JButton sin;
-    private JButton cos;
-    private JButton logaritmo;
     private JButton parIzq;
     private JButton parDch;
     private JButton exponente;
-    private JPanel KeyNormal;
+    private JButton incognitaXButton;
+    private JButton sumarPolButton;
+    private JButton restarButton;
+    private JButton multiplicarButton;
+    private JButton dividirButton;
+    private JButton raicesButton;
 
 
-    public KeyboardNormal(final InterficieGrafica ig) {
-
+    KeyboardPolinomio(final InterficieGrafica ig) {
 
 
         /*Acciones añadir numeros*/
@@ -162,17 +165,7 @@ public class KeyboardNormal {
 
 
         /*Accion resultado*/
-        botonResultado.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String result = "" + Evaluator.calculate(ig.Entrada.getText());
-                ig.Salida.setText(result);
 
-
-                ig.historico.add("Operacion " + ig.indexOperaciones + "  :  (" + ig.Entrada.getText() + ")  =  " + result);
-                ig.indexOperaciones++;
-            }
-        });
 
         /*Accion borrar*/
         borrar.addActionListener(new ActionListener() {
@@ -182,10 +175,11 @@ public class KeyboardNormal {
                 ig.Salida.setText("Resultado");
             }
         });
+
+
     }
 
-
-    public JPanel getKeypadNormal() {
-        return KeypadNormal;
+    public JPanel getPanelPrincipal() {
+        return PanelPrincipal;
     }
 }
