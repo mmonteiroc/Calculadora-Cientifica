@@ -4,8 +4,11 @@ import evaluator.Evaluator;
 import evaluator.Token;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Creado por: mmonteiro
@@ -15,35 +18,25 @@ import java.awt.event.ActionListener;
  * Proyecto Calculadora
  */
 public class InterficieGrafica extends JFrame {
+    //Historico
+    static List<String> historico = new LinkedList<String>();
+    static int indexOperaciones = 1;
     private JPanel panel1;
     private JPanel PanelPrincipal;
     private JPanel ParteNorte;
-    private JTextField Entrada;
-    private JTextField Salida;
     private JPanel PanelCentral;
 
-    // KEYPAD
-    private JPanel Keypad;
-    // Numeros
-    private JButton boton0;
-    private JButton boton1;
-    private JButton boton2;
-    private JButton boton3;
-    private JButton boton4;
-    private JButton boton5;
-    private JButton boton6;
-    private JButton boton7;
-    private JButton boton8;
-    private JButton boton9;
+    // Package
+    JTextField Entrada;
+    JTextField Salida;
 
-    //Botones
-    private JButton resta;
-    private JButton Suma;
-    private JButton botonComa;
-    private JButton botonResultado;
-    private JButton multiplicacion;
-    private JButton dividir;
-    private JButton borrar;
+    private JComboBox comboBox1;
+    private JComboBox TipoOP;
+    private JComboBox TipoBase;
+    private JPanel panelSur;
+
+    // Card layout
+    CardLayout cardLayout = new CardLayout();
 
 
     // Constructor
@@ -51,6 +44,9 @@ public class InterficieGrafica extends JFrame {
         // Extablece panel principal
         this.setContentPane(panel1);
 
+        this.setMinimumSize(new Dimension(450, 500));
+        this.setMaximumSize(new Dimension(451, 501));
+        this.setSize(new Dimension(450, 500));
         /*Barra menus*/
         JMenuBar menuBar = new JMenuBar();
         this.setJMenuBar(menuBar);
@@ -59,143 +55,33 @@ public class InterficieGrafica extends JFrame {
         JMenu settings = new JMenu("Ajustes");
         menuBar.add(settings);
 
-        /*Acciones añadir numeros*/
 
-        boton0.addActionListener(new ActionListener() {
+
+        /*Card settings*/
+        KeyboardNormal kn = new KeyboardNormal(this);
+        KeyboardRoman kr = new KeyboardRoman(this);
+
+
+        panelSur.setLayout(cardLayout);
+        panelSur.add(kn.getKeypadNormal(), "PanelNormal");
+        panelSur.add(kr.getPanel(), "PanelRomano");
+
+
+        /*CARD CHOOSER KEYPAD*/
+        TipoOP.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                Entrada.setText(Entrada.getText() + "0");
-
-            }
-        });
-        boton1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                Entrada.setText(Entrada.getText() + "1");
-
-            }
-        });
-        boton2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                Entrada.setText(Entrada.getText() + "2");
-
-            }
-        });
-        boton3.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                Entrada.setText(Entrada.getText() + "3");
-
-            }
-        });
-        boton4.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                Entrada.setText(Entrada.getText() + "4");
-
-            }
-        });
-        boton5.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                Entrada.setText(Entrada.getText() + "5");
-
-            }
-        });
-        boton6.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                Entrada.setText(Entrada.getText() + "6");
-
-            }
-        });
-        boton7.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                Entrada.setText(Entrada.getText() + "7");
-
-            }
-        });
-        boton8.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                Entrada.setText(Entrada.getText() + "8");
-
-            }
-        });
-        boton9.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                Entrada.setText(Entrada.getText() + "9");
-
-            }
-        });
-
-        /*Acciones añadir operaciones al input*/
-
-
-        Suma.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Entrada.setText(Entrada.getText() + "+");
-            }
-        });
-        resta.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Entrada.setText(Entrada.getText() + "-");
-            }
-        });
-        multiplicacion.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Entrada.setText(Entrada.getText() + "*");
-            }
-        });
-        dividir.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Entrada.setText(Entrada.getText() + "/");
-            }
-        });
-        botonComa.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Entrada.setText(Entrada.getText() + ".");
+                if (TipoOP.getSelectedIndex() == 0) {
+                    // NORMAL
+                    cardLayout.show(panelSur, "PanelNormal");
+                } else if (TipoOP.getSelectedIndex() == 1) {
+                    //Romano
+                    cardLayout.show(panelSur, "PanelRomano");
+                }
             }
         });
 
 
-
-        /*Accion resultado*/
-        botonResultado.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                Salida.setText(Evaluator.calculate(Entrada.getText()) + "");
-
-            }
-        });
-
-        /*Accion borrar*/
-        borrar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Entrada.setText("");
-                Salida.setText("Resultado");
-            }
-        });
     }
 
 
