@@ -1,5 +1,8 @@
 package visual;
 
+import evaluator.Evaluator;
+import evaluator.Token;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -40,6 +43,7 @@ public class InterficieGrafica extends JFrame {
     private JButton botonResultado;
     private JButton multiplicacion;
     private JButton dividir;
+    private JButton borrar;
 
 
     // Constructor
@@ -138,7 +142,60 @@ public class InterficieGrafica extends JFrame {
             }
         });
 
+        /*Acciones añadir operaciones al input*/
 
+
+        Suma.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Entrada.setText(Entrada.getText() + "+");
+            }
+        });
+        resta.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Entrada.setText(Entrada.getText() + "-");
+            }
+        });
+        multiplicacion.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Entrada.setText(Entrada.getText() + "*");
+            }
+        });
+        dividir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Entrada.setText(Entrada.getText() + "/");
+            }
+        });
+        botonComa.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Entrada.setText(Entrada.getText() + ".");
+            }
+        });
+
+
+
+        /*Accion resultado*/
+        botonResultado.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Salida.setText(Evaluator.calculate(Entrada.getText()) + "");
+
+            }
+        });
+
+        /*Accion borrar*/
+        borrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Entrada.setText("");
+                Salida.setText("Resultado");
+            }
+        });
     }
 
 

@@ -25,7 +25,7 @@ public class Evaluator {
      * que hacemos es pasarlos al metodo CalcRPN el cual se encarga de retornarnos
      * el resultado de dicha operación matematica.
      */
-    public static int calculate(String expr) {
+    public static double calculate(String expr) {
         Token[] tokens = Token.getTokens(expr);
         Deque<Token> pila = new LinkedList<Token>();
         List<Token> output = new ArrayList<Token>();
@@ -123,7 +123,7 @@ public class Evaluator {
      * entonces sacaremos el ultimo valor que tendremos en la pila
      * sera el resultado a retornar
      */
-    public static int calcRPN(Token[] list) {
+    public static double calcRPN(Token[] list) {
         Deque<Token> pila = new LinkedList<Token>();
         for (int i = 0; i < list.length; i++) {
             if (list[i].getTokType() == Token.Toktype.NUMBER) {
@@ -139,18 +139,18 @@ public class Evaluator {
                 }
 
 
-                int resultado;
+                double resultado;
                 int n2 = pila.poll().getValue();
                 int n1 = pila.poll().getValue();
                 char op = list[i].getTkOp();
-                resultado = (int) operamos(n1, n2, op);
-                pila.push(Token.tokNumber(resultado));
+                resultado = operamos(n1, n2, op);
+                pila.push(Token.tokNumber((int) resultado));
             }
         }
         return pila.poll().getValue();
     }
 
-    static private double operamos(int n, int n2, char op) {
+    static private double operamos(double n, double n2, char op) {
         double dev = 0;
         if (op == '+') {
             dev = n + n2;
