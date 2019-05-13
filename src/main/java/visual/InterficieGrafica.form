@@ -77,9 +77,9 @@
                 <properties>
                   <model>
                     <item value="Normal"/>
+                    <item value="Romano"/>
                     <item value="Polinomios"/>
                     <item value="Polaca inversa"/>
-                    <item value="Romano"/>
                     <item value="Matrixes"/>
                     <item value="Vectors"/>
                     <item value="Fracciones"/>
