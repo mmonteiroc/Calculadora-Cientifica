@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Creado por: mmonteiro
  * miguelmonteiroclaveri@gmail.com
- * github.com/mmonteiroc
+ * github.com/mmonteiroc/Calculadora-Cientifica
  * Paquete visual
  * Proyecto Calculadora
  */
