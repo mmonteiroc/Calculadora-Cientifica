@@ -52,7 +52,7 @@ public class KeyboardPolinomio {
         boton0.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // if (ig.Entrada.getSize()){
+                //if (ig.Entrada.){
                 System.out.println("entrada 1 tiene focus");
                 ig.Entrada.setText(ig.Entrada.getText() + "0");
                 // }else{
@@ -184,7 +184,6 @@ public class KeyboardPolinomio {
                 Polynomial resultado = polinomio1.add(polinomio2);
                 ig.Salida.setText(resultado.toString());
                 saveStory("Operación " + ig.indexOperaciones + "  :  " + ig.Entrada.getText() + " + " + ig.Entrada2.getText() + " -- Suma->" + resultado.toString());
-
             }
         });
 

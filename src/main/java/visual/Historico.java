@@ -20,7 +20,7 @@ public class Historico {
     private JTable table1;
 
     // Constructor
-    Historico(InterficieGrafica ig) {
+    Historico() {
         /*Modelo tabla*/
         DefaultTableModel tableModel = new DefaultTableModel();
         tableModel.addColumn("Historial de operaciones");

@@ -62,12 +62,6 @@ public class KeyboardRoman {
                 ig.Entrada.setText(ig.Entrada.getText() + "L");
             }
         });
-        boton_C.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ig.Entrada.setText(ig.Entrada.getText() + "C");
-            }
-        });
         boton_D.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

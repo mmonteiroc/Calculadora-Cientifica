@@ -43,7 +43,7 @@ public class InterficieGrafica extends JFrame {
 
 
     // Card layout
-    CardLayout cardLayout = new CardLayout();
+    private CardLayout cardLayout = new CardLayout();
 
 
     // Constructor
@@ -67,10 +67,12 @@ public class InterficieGrafica extends JFrame {
         /*Card settings*/
         KeyboardNormal kn = new KeyboardNormal(this);
         KeyboardRoman kr = new KeyboardRoman(this);
-        final Historico historicoLayout = new Historico(this);
+        final Historico historicoLayout = new Historico();
         KeyboardPolinomio kp = new KeyboardPolinomio(this);
         KeyboardMatrices keyboardMatrices = new KeyboardMatrices(this);
         KeyboardBinario keyboardBinario = new KeyboardBinario(this);
+        KeyboardVectores keyboardVectores = new KeyboardVectores(this);
+        KeyboardFracciones keyboardFracciones = new KeyboardFracciones(this);
 
 
         panelSur.setLayout(cardLayout);
@@ -81,6 +83,10 @@ public class InterficieGrafica extends JFrame {
         panelSur.add(kp.getPanelPrincipal(), "PanlePolinomios");
         panelSur.add(keyboardMatrices.getPanelPrincipal(), "PanelMatrices");
         panelSur.add(keyboardBinario.getPanelPrincipal(), "PanelBinario");
+        panelSur.add(keyboardVectores.getPanelPrincipal(), "PanelVectores");
+        panelSur.add(keyboardFracciones.getPanelPrincipal(), "PanelFracciones");
+
+
 
         /*CARD CHOOSER KEYPAD*/
         TipoOP.addActionListener(new ActionListener() {
@@ -88,8 +94,10 @@ public class InterficieGrafica extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 Entrada2.setEnabled(false);
                 Entrada.setEnabled(true);
+                Entrada.setText("");
+                Entrada2.setText("");
                 chooserHistorico.setSelectedIndex(0);
-                Entrada2.setText("Activa polinomios para interactuar ");
+                Entrada2.setText("Activa polinomios o binario para interactuar");
                 if (TipoOP.getSelectedIndex() == 0 || TipoOP.getSelectedIndex() == 3) {
                     // Normal o Polaca inversa
                     cardLayout.show(panelSur, "PanelNormal");
@@ -109,6 +117,11 @@ public class InterficieGrafica extends JFrame {
                     Entrada2.setEnabled(true);
                     Entrada2.setText("");
                     cardLayout.show(panelSur, "PanelBinario");
+                } else if (TipoOP.getSelectedIndex() == 6) {
+                    // Vectores
+                    cardLayout.show(panelSur, "PanelVectores");
+                } else if (TipoOP.getSelectedIndex() == 7) {
+                    cardLayout.show(panelSur, "PanelFracciones");
                 }
             }
         });
