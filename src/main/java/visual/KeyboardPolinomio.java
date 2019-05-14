@@ -31,7 +31,6 @@ public class KeyboardPolinomio {
     private JButton boton9;
     private JButton boton0;
     private JButton botonComa;
-    private JButton botonResultado;
     private JButton multiplicacion;
     private JButton dividir;
     private JButton borrar;
@@ -40,7 +39,6 @@ public class KeyboardPolinomio {
     private JButton exponente;
     private JButton incognitaXButton;
     private JButton sumarPolButton;
-    private JButton restarButton;
     private JButton multiplicarButton;
     private JButton dividirButton;
     private JButton raicesButton;

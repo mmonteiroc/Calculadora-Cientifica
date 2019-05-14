@@ -2,7 +2,6 @@ package visual;
 
 import evaluator.Evaluator;
 import roman.RomanConverter;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -105,7 +104,6 @@ public class KeyboardRoman {
                 ig.Entrada.setText(ig.Entrada.getText() + "/");
             }
         });
-
         clear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -123,7 +121,6 @@ public class KeyboardRoman {
                 String entrada = ig.Entrada.getText();
                 RomanConverter rc;
 
-
                 for (int i = 0; i < entrada.length(); i++) {
                     char car = entrada.charAt(i);
                     if (car == '+' || car == '-' || car == '/' || car == '*') {
@@ -139,13 +136,12 @@ public class KeyboardRoman {
 
                 int resultado = (int) Evaluator.calculate(numeros);
 
-
-                ig.Salida.setText(new RomanConverter(resultado).toString());
-                System.out.println(numeros);
+                String resultRomano = new RomanConverter(resultado).toString();
+                ig.Salida.setText(resultRomano);
+                InterficieGrafica.historico.add("Operacion " + InterficieGrafica.indexOperaciones + " : " + ig.Entrada.getText() + "  = " + resultRomano);
             }
         });
     }
-
 
     public JPanel getPanel() {
         return panel;

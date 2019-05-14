@@ -1,7 +1,7 @@
 package visual;
 
 import evaluator.Evaluator;
-
+import evaluator.Token;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -165,10 +165,17 @@ public class KeyboardNormal {
         botonResultado.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String result = "" + Evaluator.calculate(ig.Entrada.getText());
+                String result = "";
+
+                if (ig.TipoOP.getSelectedIndex() == 0) {
+                    // normal
+                    result = "" + Evaluator.calculate(ig.Entrada.getText());
+                } else if (ig.TipoOP.getSelectedIndex() == 3) {
+                    // Polaca inversa
+                    result = "" + Evaluator.calcRPN(Token.getTokens(ig.Entrada.getText()));
+                }
+
                 ig.Salida.setText(result);
-
-
                 ig.historico.add("Operacion " + ig.indexOperaciones + "  :  (" + ig.Entrada.getText() + ")  =  " + result);
                 ig.indexOperaciones++;
             }

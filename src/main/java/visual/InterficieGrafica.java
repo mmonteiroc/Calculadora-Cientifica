@@ -28,7 +28,7 @@ public class InterficieGrafica extends JFrame {
     private JPanel ParteNorte;
     private JPanel PanelCentral;
     private JComboBox chooserHistorico;
-    private JComboBox TipoOP;
+    JComboBox TipoOP;
     private JPanel panelSur;
     // Package
 
@@ -67,7 +67,7 @@ public class InterficieGrafica extends JFrame {
         KeyboardRoman kr = new KeyboardRoman(this);
         final Historico historicoLayout = new Historico(this);
         KeyboardPolinomio kp = new KeyboardPolinomio(this);
-
+        KeyboardMatrices keyboardMatrices = new KeyboardMatrices(this);
 
         panelSur.setLayout(cardLayout);
         // Asignando layouts a panel sur
@@ -75,15 +75,18 @@ public class InterficieGrafica extends JFrame {
         panelSur.add(kr.getPanel(), "PanelRomano");
         panelSur.add(historicoLayout.getPanelPrincipal(), "PanelHistorico");
         panelSur.add(kp.getPanelPrincipal(), "PanlePolinomios");
+        panelSur.add(keyboardMatrices.getPanelPrincipal(), "PanelMatrices");
+
 
         /*CARD CHOOSER KEYPAD*/
         TipoOP.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Entrada2.setEnabled(false);
-                Entrada2.setText("Activa polinomios para interactuar con este input");
-                if (TipoOP.getSelectedIndex() == 0) {
-                    // NORMAL
+                Entrada.setEnabled(true);
+                Entrada2.setText("Activa polinomios para interactuar ");
+                if (TipoOP.getSelectedIndex() == 0 || TipoOP.getSelectedIndex() == 3) {
+                    // Normal o Polaca inversa
                     cardLayout.show(panelSur, "PanelNormal");
                 } else if (TipoOP.getSelectedIndex() == 1) {
                     //Romano
@@ -93,6 +96,10 @@ public class InterficieGrafica extends JFrame {
                     Entrada2.setEnabled(true);
                     Entrada2.setText("");
                     cardLayout.show(panelSur, "PanlePolinomios");
+                } else if (TipoOP.getSelectedIndex() == 4) {
+                    // Matrices
+                    Entrada.setEnabled(false);
+                    cardLayout.show(panelSur, "PanelMatrices");
                 }
             }
         });
