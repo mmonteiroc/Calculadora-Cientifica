@@ -176,7 +176,8 @@ public class KeyboardNormal {
                 }
 
                 ig.Salida.setText(result);
-                ig.historico.add("Operacion " + ig.indexOperaciones + "  :  (" + ig.Entrada.getText() + ")  =  " + result);
+                ig.historico.addLast("Operacion " + ig.indexOperaciones + "  :  (" + ig.Entrada.getText() + ")  =  " + result);
+
                 ig.indexOperaciones++;
             }
         });

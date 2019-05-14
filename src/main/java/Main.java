@@ -5,7 +5,7 @@ import javax.swing.*;
 /**
  * Creado por: mmonteiro
  * miguelmonteiroclaveri@gmail.com
- * github.com/mmonteiroc
+ * github.com/mmonteiroc/Calculadora-Cientifica
  * Paquete PACKAGE_NAME
  * Proyecto Calculadora
  */

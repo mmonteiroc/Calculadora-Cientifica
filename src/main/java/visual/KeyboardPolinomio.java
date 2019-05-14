@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 /**
  * Creado por: mmonteiro
  * miguelmonteiroclaveri@gmail.com
- * github.com/mmonteiroc
+ * github.com/mmonteiroc/Calculadora-Cientifica
  * Paquete visual
  * Proyecto Calculadora
  */
@@ -253,7 +253,8 @@ public class KeyboardPolinomio {
     }
 
     void saveStory(String s) {
-        InterficieGrafica.historico.add(s);
+        InterficieGrafica.indexOperaciones++;
+        InterficieGrafica.historico.addLast(s);
     }
 
     public JPanel getPanelPrincipal() {

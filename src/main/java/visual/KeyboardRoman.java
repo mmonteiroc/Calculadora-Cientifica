@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 /**
  * Creado por: mmonteiro
  * miguelmonteiroclaveri@gmail.com
- * github.com/mmonteiroc
+ * github.com/mmonteiroc/Calculadora-Cientifica
  * Paquete visual
  * Proyecto Calculadora
  */
@@ -138,7 +138,7 @@ public class KeyboardRoman {
 
                 String resultRomano = new RomanConverter(resultado).toString();
                 ig.Salida.setText(resultRomano);
-                InterficieGrafica.historico.add("Operacion " + InterficieGrafica.indexOperaciones + " : " + ig.Entrada.getText() + "  = " + resultRomano);
+                InterficieGrafica.historico.addLast("Operacion " + InterficieGrafica.indexOperaciones++ + " : " + ig.Entrada.getText() + "  = " + resultRomano);
             }
         });
     }

@@ -72,6 +72,9 @@ public class KeyboardMatrices {
                 double[][] matriz1 = recogerMatriz1();
                 double[][] transpuesta = Transponer.transponerMatriz(matriz1);
                 rellenarResultado(transpuesta);
+
+                String s1 = "Operacion " + InterficieGrafica.indexOperaciones++ + "";
+
             }
         });
 
