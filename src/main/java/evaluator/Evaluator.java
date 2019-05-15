@@ -131,8 +131,8 @@ public class Evaluator {
             } else if (list[i].getTokType() == Token.Toktype.OP) {
 
                 if (list[i].getTkOp() == '_') {
-                    int resultado;
-                    int n2 = pila.poll().getValue();
+                    double resultado;
+                    double n2 = pila.poll().getValue();
                     resultado = n2 * (-1);
                     pila.push(Token.tokNumber(resultado));
                     continue;
@@ -140,8 +140,8 @@ public class Evaluator {
 
 
                 double resultado;
-                int n2 = pila.poll().getValue();
-                int n1 = pila.poll().getValue();
+                double n2 = pila.poll().getValue();
+                double n1 = pila.poll().getValue();
                 char op = list[i].getTkOp();
                 resultado = operamos(n1, n2, op);
                 pila.push(Token.tokNumber((int) resultado));

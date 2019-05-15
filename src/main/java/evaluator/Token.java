@@ -17,7 +17,7 @@ public class Token {
     }
 
     private Toktype tokType;
-    private int value;
+    private double value;
     private char tkOp;
 
     // Constructor privado para evitar
@@ -34,7 +34,7 @@ public class Token {
      * Despues instancia un nuevo token, y asignamos un tipo de token "Number"
      * Asignamos el valor que le corresponde y retornamos dicho token
      */
-    static Token tokNumber(int value) {
+    public static Token tokNumber(double value) {
         Token dev = new Token();
         dev.tokType = Toktype.NUMBER;
         dev.value = value;
@@ -50,7 +50,7 @@ public class Token {
      * Despues instanciamos un nuevo token y le asignamos los
      * valores que le pertañen
      */
-    static Token tokOp(char operador) {
+    public static Token tokOp(char operador) {
         Token dev = new Token();
         dev.tokType = Toktype.OP;
         dev.tkOp = operador;
@@ -65,7 +65,7 @@ public class Token {
      * Añadimos a dicho token todos
      * sus valores necesarios y lo retornamos
      */
-    static Token tokParen(char paren) {
+    public static Token tokParen(char paren) {
         Token devolver = new Token();
         devolver.tokType = Toktype.PAREN;
         devolver.tkOp = paren;
@@ -113,7 +113,7 @@ public class Token {
                     devolver.add(tokParen(part.charAt(0)));
                     encontradoOperador = false;
                 } else if (Character.isDigit(part.charAt(0))) {
-                    devolver.add(tokNumber(Integer.parseInt(part)));
+                    devolver.add(tokNumber(Double.parseDouble(part)));
                     encontradoOperador = false;
                 }
             }
@@ -153,7 +153,7 @@ public class Token {
         return tokType;
     }
 
-    public int getValue() {
+    public double getValue() {
         return value;
     }
 
