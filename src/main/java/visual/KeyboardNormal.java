@@ -188,6 +188,31 @@ public class KeyboardNormal {
             }
         });
 
+        cos.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String s = String.format("%.3f DEGREES", Math.cos(Math.toRadians(Double.parseDouble(ig.Entrada.getText()))));
+                ig.historico.addLast(new String[]{
+                        ig.Entrada.getText(), s, "Decimal"
+                });
+                ig.Salida.setText(s);
+
+            }
+        });
+
+        sin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String s = String.format("%.3f DEGREES", Math.sin(Math.toRadians(Double.parseDouble(ig.Entrada.getText()))));
+                ig.historico.addLast(new String[]{
+                        ig.Entrada.getText(), s, "Decimal"
+                });
+                ig.Salida.setText(s);
+
+            }
+        });
+
+
         /*Accion borrar*/
         borrar.addActionListener(new ActionListener() {
             @Override
@@ -196,6 +221,12 @@ public class KeyboardNormal {
                 ig.Salida.setText("Resultado");
             }
         });
+    }
+
+    private double setDegrees(double radians) {
+
+        return radians * 200 / Math.PI;
+
     }
 
 

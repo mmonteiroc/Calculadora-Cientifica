@@ -83,7 +83,7 @@ public class InterficieGrafica extends JFrame {
         KeyboardBinario keyboardBinario = new KeyboardBinario(this);
         KeyboardVectores keyboardVectores = new KeyboardVectores(this);
         KeyboardFracciones keyboardFracciones = new KeyboardFracciones(this);
-
+        ConversionNumericas conversionNumericas = new ConversionNumericas(this);
 
         panelSur.setLayout(cardLayout);
         // Asignando layouts a panel sur
@@ -95,7 +95,7 @@ public class InterficieGrafica extends JFrame {
         panelSur.add(keyboardBinario.getPanelPrincipal(), "PanelBinario");
         panelSur.add(keyboardVectores.getPanelPrincipal(), "PanelVectores");
         panelSur.add(keyboardFracciones.getPanelPrincipal(), "PanelFracciones");
-
+        panelSur.add(conversionNumericas.getPanel1(), "conversionNum");
 
 
         /*CARD CHOOSER KEYPAD*/
@@ -132,6 +132,8 @@ public class InterficieGrafica extends JFrame {
                     cardLayout.show(panelSur, "PanelVectores");
                 } else if (TipoOP.getSelectedIndex() == 7) {
                     cardLayout.show(panelSur, "PanelFracciones");
+                } else if (TipoOP.getSelectedIndex() == 8) {
+                    cardLayout.show(panelSur, "conversionNum");
                 }
             }
         });

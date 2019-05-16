@@ -83,6 +83,15 @@ public class KeyboardBinario {
             }
         });
 
+        ClearALL.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ig.Entrada.setText("");
+                ig.Entrada2.setText("");
+                ig.Salida.setText("");
+            }
+        });
+
 
     }
 
