@@ -131,7 +131,7 @@
                     <item value="Conversiones Numericas"/>
                     <item value="Unidades de mesura"/>
                     <item value="Money"/>
-                    <item value="Average"/>
+                    <item value="Average/Variança"/>
                   </model>
                 </properties>
               </component>

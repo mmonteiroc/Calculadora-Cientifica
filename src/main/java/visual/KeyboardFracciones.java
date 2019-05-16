@@ -143,6 +143,10 @@ public class KeyboardFracciones {
                 String parseFracciones = transformFraccions(ig.Entrada.getText());
 
                 ig.Salida.setText(parseFracciones);
+
+                ig.historico.addLast(new String[]{
+                        ig.Entrada.getText(), parseFracciones, "Fracciones"
+                });
             }
         });
 
@@ -150,6 +154,11 @@ public class KeyboardFracciones {
     }
 
 
+    /**
+     * @param input
+     * @return Este metodo nos permite leer todas las fracciones de el input e ir
+     * calculandolas hasta que hayamos calculado todas y retornamos la fraccion resultante
+     */
     private String transformFraccions(String input) {
 
         LinkedList<Fraccion> fraccions = new LinkedList<Fraccion>();

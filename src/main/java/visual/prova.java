@@ -1,6 +1,7 @@
 package visual;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
 public class prova extends JDialog {
@@ -9,6 +10,7 @@ public class prova extends JDialog {
     private JButton buttonCancel;
 
     public prova() {
+        this.setMinimumSize(new Dimension(300, 300));
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
