@@ -144,7 +144,7 @@ public class Evaluator {
                 double n1 = pila.poll().getValue();
                 char op = list[i].getTkOp();
                 resultado = operamos(n1, n2, op);
-                pila.push(Token.tokNumber((int) resultado));
+                pila.push(Token.tokNumber(resultado));
             }
         }
         return pila.poll().getValue();

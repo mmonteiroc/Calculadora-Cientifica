@@ -132,7 +132,9 @@ public class KeyboardRoman {
 
                 String resultRomano = new RomanConverter(resultado).toString();
                 ig.Salida.setText(resultRomano);
-                InterficieGrafica.historico.addLast("Operacion " + InterficieGrafica.indexOperaciones++ + " : " + ig.Entrada.getText() + "  = " + resultRomano);
+                InterficieGrafica.historico.addLast(new String[]{
+                        ig.Entrada.getText(), resultRomano, "Romano"
+                });
             }
         });
     }

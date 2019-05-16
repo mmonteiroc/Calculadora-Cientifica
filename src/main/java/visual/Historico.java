@@ -1,8 +1,13 @@
 package visual;
 
 import javax.swing.*;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,17 +25,39 @@ public class Historico {
     private JTable table1;
 
     // Constructor
-    Historico() {
+    Historico(final InterficieGrafica ig) {
         /*Modelo tabla*/
         DefaultTableModel tableModel = new DefaultTableModel();
-        tableModel.addColumn("Historial de operaciones");
+        tableModel.addColumn("Operación");
+        tableModel.addColumn("Resultado");
+        tableModel.addColumn("Modo calculadora");
         Font f = new Font(Font.SANS_SERIF, Font.BOLD, 15);
 
-        table1.setEnabled(false);
         table1.setRowHeight(35);
 
         table1.setFont(f);
         table1.setModel(tableModel);
+        table1.setEnabled(true);
+
+
+        table1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                System.out.println("Clic en la tabla");
+                String tipoOperacion = ig.historico.get(table1.getSelectedRow())[2];
+                String Operacion = ig.historico.get(table1.getSelectedRow())[0];
+                String result = ig.historico.get(table1.getSelectedRow())[1];
+
+                // Decimal
+                if (tipoOperacion.equals("Decimal")) {
+                    ig.Entrada.setText(Operacion);
+                    ig.Salida.setText(result);
+                }
+
+            }
+
+        });
+
     }
 
     public JPanel getPanelPrincipal() {
@@ -38,12 +65,12 @@ public class Historico {
     }
 
 
-    void setValuesTable(LinkedList<String> filas) {
+    void setValuesTable(LinkedList<String[]> filas) {
         DefaultTableModel tabla = (DefaultTableModel) table1.getModel();
 
         for (int i = InterficieGrafica.indexImpresas; i < filas.size(); i++) {
-            String fila = filas.get(i);
-            tabla.addRow(new String[]{fila
+            String[] fila = filas.get(i);
+            tabla.addRow(new String[]{fila[0], fila[1], fila[2]
             });
             InterficieGrafica.indexImpresas++;
         }

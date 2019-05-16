@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class InterficieGrafica extends JFrame {
     //Historico
-    static LinkedList<String> historico = new LinkedList<String>();
+    static LinkedList<String[]> historico = new LinkedList<String[]>();
     static int indexImpresas = 0;
     static int indexOperaciones = 1;
 
@@ -58,16 +58,26 @@ public class InterficieGrafica extends JFrame {
         JMenuBar menuBar = new JMenuBar();
         this.setJMenuBar(menuBar);
 
+
         /*Menu File*/
+
         JMenu settings = new JMenu("Ajustes");
         menuBar.add(settings);
+        JMenuItem mi = new JMenuItem("prova");
+        settings.add(mi);
+        mi.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                prova p = new prova();
+                p.setVisible(true);
 
-
+            }
+        });
 
         /*Card settings*/
         KeyboardNormal kn = new KeyboardNormal(this);
         KeyboardRoman kr = new KeyboardRoman(this);
-        final Historico historicoLayout = new Historico();
+        final Historico historicoLayout = new Historico(this);
         KeyboardPolinomio kp = new KeyboardPolinomio(this);
         KeyboardMatrices keyboardMatrices = new KeyboardMatrices(this);
         KeyboardBinario keyboardBinario = new KeyboardBinario(this);

@@ -98,7 +98,9 @@ public class Token {
         String[] partes = anadirEspacios(expr).split("\\s+");
 
         boolean encontradoOperador = true;
-        for (String part : partes) {
+
+        for (int i = 0; i < partes.length; i++) {
+            String part = partes[i];
             if (part.length() != 0) {
                 if (part.contains("-") && encontradoOperador) {
                     devolver.add(tokOp('_'));
@@ -113,11 +115,32 @@ public class Token {
                     devolver.add(tokParen(part.charAt(0)));
                     encontradoOperador = false;
                 } else if (Character.isDigit(part.charAt(0))) {
-                    devolver.add(tokNumber(Double.parseDouble(part)));
+                    if (i + 1 >= partes.length) {
+                        devolver.add(tokNumber(Double.parseDouble(part)));
+                    } else {
+                        if (partes[i + 1].charAt(0) == '.') {
+                            int index = 1;
+                            String ayuda = "";
+                            for (int j = i + 2; j < partes.length; j++) {
+
+                                if (Character.isDigit(partes[j].charAt(0))) {
+                                    ayuda += partes[j];
+                                    index++;
+                                } else {
+                                    break;
+                                }
+                            }
+                            i += index;
+                            devolver.add(tokNumber(Double.parseDouble(part + "." + ayuda)));
+                        } else {
+                            devolver.add(tokNumber(Double.parseDouble(part)));
+                        }
+                    }
                     encontradoOperador = false;
                 }
             }
         }
+
         return devolver.toArray(new Token[0]);
     }
 

@@ -170,15 +170,21 @@ public class KeyboardNormal {
                 if (ig.TipoOP.getSelectedIndex() == 0) {
                     // normal
                     result = "" + Evaluator.calculate(ig.Entrada.getText());
+                    ig.Salida.setText(result);
+                    ig.historico.addLast(new String[]{
+                            ig.Entrada.getText(), result, "Decimal"
+                    });
                 } else if (ig.TipoOP.getSelectedIndex() == 3) {
                     // Polaca inversa
                     result = "" + Evaluator.calcRPN(Token.getTokens(ig.Entrada.getText()));
+                    ig.Salida.setText(result);
+                    ig.historico.addLast(new String[]{
+                            ig.Entrada.getText(), result, "RPN"
+                    });
                 }
 
-                ig.Salida.setText(result);
-                ig.historico.addLast("Operacion " + ig.indexOperaciones + "  :  (" + ig.Entrada.getText() + ")  =  " + result);
 
-                ig.indexOperaciones++;
+
             }
         });
 

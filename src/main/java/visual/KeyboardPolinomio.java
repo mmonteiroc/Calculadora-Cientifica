@@ -183,7 +183,9 @@ public class KeyboardPolinomio {
                 Polynomial polinomio2 = new Polynomial(ig.Entrada2.getText());
                 Polynomial resultado = polinomio1.add(polinomio2);
                 ig.Salida.setText(resultado.toString());
-                saveStory("Operación " + ig.indexOperaciones + "  :  " + ig.Entrada.getText() + " + " + ig.Entrada2.getText() + " -- Suma->" + resultado.toString());
+                saveStory(new String[]{
+                        ig.Entrada.getText() + " + " + ig.Entrada2.getText(), resultado.toString(), "Polinomios"
+                });
             }
         });
 
@@ -194,7 +196,9 @@ public class KeyboardPolinomio {
                 Polynomial polinomio2 = new Polynomial(ig.Entrada2.getText());
                 Polynomial resultado = polinomio1.mult(polinomio2);
                 ig.Salida.setText(resultado.toString());
-                saveStory("Operación " + ig.indexOperaciones + "  :  " + ig.Entrada.getText() + " x " + ig.Entrada2.getText() + " -- multiplicación->" + resultado.toString());
+                saveStory(new String[]{
+                        ig.Entrada.getText() + " x " + ig.Entrada2.getText(), resultado.toString(), "Polinomios"
+                });
 
             }
         });
@@ -208,7 +212,9 @@ public class KeyboardPolinomio {
                 String residu = resultado[1].toString();
                 ig.Salida.setText("Coef: " + coef + " - Residuo: " + residu);
 
-                saveStory("Operación " + ig.indexOperaciones + "  :  " + ig.Entrada.getText() + " / " + ig.Entrada2.getText() + " -- Division-> " + coef + "||" + residu);
+                saveStory(new String[]{
+                        ig.Entrada.getText() + " / " + ig.Entrada2.getText(), coef + "||" + residu, "Polinomios"
+                });
             }
         });
         raicesButton.addActionListener(new ActionListener() {
@@ -233,7 +239,9 @@ public class KeyboardPolinomio {
 
 
                 // Save part
-                saveStory("Operación " + ig.indexOperaciones + "  :  " + ig.Entrada.getText() + " -- roots --> " + s);
+                saveStory(new String[]{
+                        ig.Entrada.getText(), s, "Polinomios"
+                });
             }
         });
 
@@ -251,8 +259,7 @@ public class KeyboardPolinomio {
 
     }
 
-    void saveStory(String s) {
-        InterficieGrafica.indexOperaciones++;
+    void saveStory(String[] s) {
         InterficieGrafica.historico.addLast(s);
     }
 
