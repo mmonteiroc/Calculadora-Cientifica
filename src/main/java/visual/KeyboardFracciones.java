@@ -137,6 +137,8 @@ public class KeyboardFracciones {
                 ig.Entrada.setText("");
             }
         });
+
+
         calcularResultadoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
