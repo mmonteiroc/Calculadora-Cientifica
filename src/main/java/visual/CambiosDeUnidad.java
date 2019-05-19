@@ -46,9 +46,15 @@ public class CambiosDeUnidad {
                     // Divide
                     textField2.setText(Double.parseDouble(textField1.getText()) / Math.pow(10, numberOfCeros) + "");
                 }
+
+                InterficieGrafica.historico.addLast(new String[]{
+                        textField1.getText() + comboBox1.getSelectedItem().toString(),
+                        "",
+                        textField2.getText() + comboBox2.getSelectedItem().toString(),
+                        "Unidades de mesura"
+                });
             }
         });
-
     }
 
     public JPanel getPanelPrincipal() {

@@ -33,6 +33,7 @@ public class KeyboardMediana {
 
                 InterficieGrafica.historico.addLast(new String[]{
                         ig.Entrada.getText(),
+                        "",
                         ig.Salida.getText(),
                         "Mediana / Variança"
 

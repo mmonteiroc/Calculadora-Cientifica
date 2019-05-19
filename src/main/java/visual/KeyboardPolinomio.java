@@ -225,6 +225,7 @@ public class KeyboardPolinomio {
                 float[] resultado = polinomio1.roots();
                 if (resultado == null) {
                     ig.Salida.setText("No tiene resultado");
+                    s = "No tiene resultado";
                 } else {
                     for (int i = 0; i < resultado.length; i++) {
                         if (i + 1 >= resultado.length) {
@@ -234,13 +235,13 @@ public class KeyboardPolinomio {
                         }
                     }
                     System.out.println(s);
-                    ig.Salida.setText(s.toString());
+                    ig.Salida.setText(s);
                 }
 
 
                 // Save part
                 saveStory(new String[]{
-                        ig.Entrada.getText(), s, "Polinomios"
+                        ig.Entrada.getText(), ig.Entrada2.getText(), s, "Polinomios"
                 });
             }
         });

@@ -172,14 +172,14 @@ public class KeyboardNormal {
                     result = "" + Evaluator.calculate(ig.Entrada.getText());
                     ig.Salida.setText(result);
                     ig.historico.addLast(new String[]{
-                            ig.Entrada.getText(), result, "Decimal"
+                            ig.Entrada.getText(), "", result, "Decimal"
                     });
                 } else if (ig.TipoOP.getSelectedIndex() == 3) {
                     // Polaca inversa
                     result = "" + Evaluator.calcRPN(Token.getTokens(ig.Entrada.getText()));
                     ig.Salida.setText(result);
                     ig.historico.addLast(new String[]{
-                            ig.Entrada.getText(), result, "RPN"
+                            ig.Entrada.getText(), "", result, "RPN"
                     });
                 }
 
@@ -193,7 +193,7 @@ public class KeyboardNormal {
             public void actionPerformed(ActionEvent e) {
                 String s = String.format("%.3f DEGREES", Math.cos(Math.toRadians(Double.parseDouble(ig.Entrada.getText()))));
                 ig.historico.addLast(new String[]{
-                        ig.Entrada.getText(), s, "Decimal"
+                        ig.Entrada.getText(), "", s, "Decimal"
                 });
                 ig.Salida.setText(s);
 
@@ -205,7 +205,7 @@ public class KeyboardNormal {
             public void actionPerformed(ActionEvent e) {
                 String s = String.format("%.3f DEGREES", Math.sin(Math.toRadians(Double.parseDouble(ig.Entrada.getText()))));
                 ig.historico.addLast(new String[]{
-                        ig.Entrada.getText(), s, "Decimal"
+                        ig.Entrada.getText(), "", s, "Decimal"
                 });
                 ig.Salida.setText(s);
 

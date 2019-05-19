@@ -28,7 +28,8 @@ public class Historico {
     Historico(final InterficieGrafica ig) {
         /*Modelo tabla*/
         DefaultTableModel tableModel = new DefaultTableModel();
-        tableModel.addColumn("Operación");
+        tableModel.addColumn("Input 1");
+        tableModel.addColumn("Input 2");
         tableModel.addColumn("Resultado");
         tableModel.addColumn("Modo calculadora");
         Font f = new Font(Font.SANS_SERIF, Font.BOLD, 15);
@@ -44,13 +45,18 @@ public class Historico {
             @Override
             public void mouseClicked(MouseEvent e) {
                 System.out.println("Clic en la tabla");
-                String tipoOperacion = ig.historico.get(table1.getSelectedRow())[2];
+                String tipoOperacion = ig.historico.get(table1.getSelectedRow())[3];
                 String Operacion = ig.historico.get(table1.getSelectedRow())[0];
-                String result = ig.historico.get(table1.getSelectedRow())[1];
+                String Operacion1 = ig.historico.get(table1.getSelectedRow())[1];
+                String result = ig.historico.get(table1.getSelectedRow())[2];
 
                 // Decimal
-                if (tipoOperacion.equals("Decimal")) {
+                if (tipoOperacion.equals("Decimal") || tipoOperacion.equals("Romano")) {
                     ig.Entrada.setText(Operacion);
+                    ig.Salida.setText(result);
+                } else if (tipoOperacion.equals("Polinomios")) {
+                    ig.Entrada.setText(Operacion);
+                    ig.Entrada2.setText(Operacion1);
                     ig.Salida.setText(result);
                 }
 
@@ -70,7 +76,7 @@ public class Historico {
 
         for (int i = InterficieGrafica.indexImpresas; i < filas.size(); i++) {
             String[] fila = filas.get(i);
-            tabla.addRow(new String[]{fila[0], fila[1], fila[2]
+            tabla.addRow(new String[]{fila[0], fila[1], fila[2], fila[3]
             });
             InterficieGrafica.indexImpresas++;
         }

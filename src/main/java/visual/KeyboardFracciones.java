@@ -147,7 +147,7 @@ public class KeyboardFracciones {
                 ig.Salida.setText(parseFracciones);
 
                 ig.historico.addLast(new String[]{
-                        ig.Entrada.getText(), parseFracciones, "Fracciones"
+                        ig.Entrada.getText(), "", parseFracciones, "Fracciones"
                 });
             }
         });

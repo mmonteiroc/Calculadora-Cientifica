@@ -33,7 +33,7 @@ public class KeyboardVectores {
                 }
                 ig.Salida.setText("(" + x + "," + y + ")");
                 InterficieGrafica.historico.addLast(new String[]{
-                        ig.Entrada.getText(), "(" + x + "," + y + ")", "Vectores"
+                        ig.Entrada.getText(), "", "(" + x + "," + y + ")", "Vectores"
                 });
             }
         });
@@ -45,7 +45,7 @@ public class KeyboardVectores {
                 double resultado = distanciaEntre(new Integer[]{0, 0}, vectores.get(0));
                 ig.Salida.setText(resultado + "");
                 InterficieGrafica.historico.addLast(new String[]{
-                        ig.Entrada.getText(), "" + resultado, "Vectores"
+                        ig.Entrada.getText(), "", "" + resultado, "Vectores"
                 });
             }
         });
@@ -69,7 +69,7 @@ public class KeyboardVectores {
                 }
                 ig.Salida.setText("(" + x + "," + y + ")");
                 InterficieGrafica.historico.addLast(new String[]{
-                        ig.Entrada.getText(), " (" + x + "," + y + ")", "Vectores"
+                        ig.Entrada.getText(), "", " (" + x + "," + y + ")", "Vectores"
                 });
             }
         });
@@ -82,7 +82,7 @@ public class KeyboardVectores {
                 double resultado = distanciaEntre(vectores.get(0), vectores.get(1));
                 ig.Salida.setText(resultado + "");
                 InterficieGrafica.historico.addLast(new String[]{
-                        ig.Entrada.getText(), resultado + "", "Vectores"
+                        ig.Entrada.getText(), "", resultado + "", "Vectores"
                 });
 
             }
