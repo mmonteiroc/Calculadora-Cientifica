@@ -85,6 +85,7 @@ public class InterficieGrafica extends JFrame {
         KeyboardFracciones keyboardFracciones = new KeyboardFracciones(this);
         ConversionNumericas conversionNumericas = new ConversionNumericas(this);
         KeyboardMediana keyboardMediana = new KeyboardMediana(this);
+        CambiosDeUnidad cambiosDeUnidad = new CambiosDeUnidad(this);
 
 
         panelSur.setLayout(cardLayout);
@@ -99,7 +100,7 @@ public class InterficieGrafica extends JFrame {
         panelSur.add(keyboardFracciones.getPanelPrincipal(), "PanelFracciones");
         panelSur.add(conversionNumericas.getPanel1(), "conversionNum");
         panelSur.add(keyboardMediana.getPanlePrincipal(), "meidana");
-
+        panelSur.add(cambiosDeUnidad.getPanelPrincipal(), "cambioUnidad");
 
         /*CARD CHOOSER KEYPAD*/
         TipoOP.addActionListener(new ActionListener() {
@@ -139,7 +140,10 @@ public class InterficieGrafica extends JFrame {
                     cardLayout.show(panelSur, "conversionNum");
                 } else if (TipoOP.getSelectedIndex() == 9) {
                     cardLayout.show(panelSur, "meidana");
+                } else if (TipoOP.getSelectedIndex() == 10) {
+                    cardLayout.show(panelSur, "cambioUnidad");
                 }
+
             }
         });
 
