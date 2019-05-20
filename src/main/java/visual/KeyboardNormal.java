@@ -39,6 +39,7 @@ public class KeyboardNormal {
     private JButton parDch;
     private JButton exponente;
     private JPanel KeyNormal;
+    private JButton ASCIIButton;
 
 
     public KeyboardNormal(final InterficieGrafica ig) {
@@ -213,6 +214,28 @@ public class KeyboardNormal {
         });
 
 
+        ASCIIButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                StringBuilder devolver = new StringBuilder();
+                char caracter = ' ';
+                for (int i = 0; i < ig.Entrada.getText().length(); i++) {
+                    caracter = ig.Entrada.getText().charAt(i);
+                    devolver.append("(" + caracter + " " + (int) caracter + ") ");
+                }
+                ig.Salida.setText(devolver.toString());
+
+
+                InterficieGrafica.historico.addLast(new String[]{
+                        ig.Entrada.getText(),
+                        ig.Entrada2.getText(),
+                        ig.Salida.getText(),
+                        "Decimal"
+                });
+            }
+        });
+
+
         /*Accion borrar*/
         borrar.addActionListener(new ActionListener() {
             @Override
@@ -223,6 +246,10 @@ public class KeyboardNormal {
         });
     }
 
+    /**
+     * @param radians
+     * @return
+     */
     private double setDegrees(double radians) {
 
         return radians * 200 / Math.PI;

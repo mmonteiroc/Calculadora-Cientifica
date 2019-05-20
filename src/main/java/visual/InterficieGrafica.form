@@ -74,23 +74,27 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="a1673" class="javax.swing.JTextField" binding="Salida">
+                  <scrollpane id="f5623">
                     <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="2" indent="0" use-parent-layout="false">
-                        <minimum-size width="300" height="40"/>
-                        <preferred-size width="600" height="40"/>
-                      </grid>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
-                    <properties>
-                      <background color="-1295"/>
-                      <columns value="0"/>
-                      <editable value="false"/>
-                      <font size="18"/>
-                      <horizontalAlignment value="0"/>
-                      <text value="Resultado"/>
-                      <toolTipText value=""/>
-                    </properties>
-                  </component>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="a1673" class="javax.swing.JTextField" binding="Salida">
+                        <constraints/>
+                        <properties>
+                          <background color="-1295"/>
+                          <columns value="0"/>
+                          <editable value="false"/>
+                          <font size="18"/>
+                          <horizontalAlignment value="0"/>
+                          <text value="Resultado"/>
+                          <toolTipText value=""/>
+                        </properties>
+                      </component>
+                    </children>
+                  </scrollpane>
                 </children>
               </grid>
             </children>

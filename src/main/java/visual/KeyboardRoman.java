@@ -117,17 +117,22 @@ public class KeyboardRoman {
 
                 for (int i = 0; i < entrada.length(); i++) {
                     char car = entrada.charAt(i);
-                    if (car == '+' || car == '-' || car == '/' || car == '*') {
+                    if (car == '+' || car == '-' || car == '/' || car == '*' || car == ' ' || car == ')') {
+                        System.out.println(ayuda);
                         rc = new RomanConverter(ayuda);
                         ayuda = "";
                         numeros += rc.toInt();
+                        numeros += car;
+                    } else if (car == '(') {
                         numeros += car;
                     } else {
                         ayuda += car;
                     }
                 }
-                numeros += new RomanConverter(ayuda).toInt();
-
+                if (!ayuda.equals("")) {
+                    numeros += new RomanConverter(ayuda).toInt();
+                }
+                System.out.println(numeros);
                 int resultado = (int) Evaluator.calculate(numeros);
 
                 String resultRomano = new RomanConverter(resultado).toString();
@@ -135,6 +140,7 @@ public class KeyboardRoman {
                 InterficieGrafica.historico.addLast(new String[]{
                         ig.Entrada.getText(), "", resultRomano, "Romano"
                 });
+
             }
         });
     }

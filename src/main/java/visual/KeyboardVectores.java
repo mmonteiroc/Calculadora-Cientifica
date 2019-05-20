@@ -129,6 +129,11 @@ public class KeyboardVectores {
         return PanelPrincipal;
     }
 
+    /**
+     * @param a
+     * @param b
+     * @return
+     */
     private double distanciaEntre(Integer[] a, Integer[] b) {
         double distancia = 0;
         double catetoA = a[0] - b[0], catetoB = a[1] - b[1];

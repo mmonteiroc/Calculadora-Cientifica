@@ -1,15 +1,9 @@
 package visual;
-
-import evaluator.Evaluator;
-import evaluator.Token;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Creado por: mmonteiro
@@ -32,6 +26,8 @@ public class InterficieGrafica extends JFrame {
     private JComboBox chooserHistorico;
     JComboBox TipoOP;
     private JPanel panelSur;
+    private Font fuentePrinicpal = new Font("Arial", Font.PLAIN, 20);
+
     // Package
 
     JPanel Inputs;
@@ -54,6 +50,9 @@ public class InterficieGrafica extends JFrame {
         this.setMinimumSize(new Dimension(450, 500));
         this.setMaximumSize(new Dimension(451, 501));
         this.setSize(new Dimension(450, 500));
+        this.output.setMinimumSize(new Dimension(200, 60));
+        this.output.setMaximumSize(new Dimension(201, 65));
+        this.output.setSize(new Dimension(20, 63));
         /*Barra menus*/
         JMenuBar menuBar = new JMenuBar();
         this.setJMenuBar(menuBar);
@@ -63,14 +62,13 @@ public class InterficieGrafica extends JFrame {
 
         JMenu settings = new JMenu("Ajustes");
         menuBar.add(settings);
-        JMenuItem mi = new JMenuItem("prova");
+        JMenuItem mi = new JMenuItem("Editar fuente");
         settings.add(mi);
+        final fontChooser f = new fontChooser(this);
         mi.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                prova p = new prova();
-                p.setVisible(true);
-
+                f.setVisible(true);
             }
         });
 
@@ -86,7 +84,7 @@ public class InterficieGrafica extends JFrame {
         ConversionNumericas conversionNumericas = new ConversionNumericas(this);
         KeyboardMediana keyboardMediana = new KeyboardMediana(this);
         CambiosDeUnidad cambiosDeUnidad = new CambiosDeUnidad(this);
-
+        KeypadMoneda keypadMoneda = new KeypadMoneda(this);
 
         panelSur.setLayout(cardLayout);
         // Asignando layouts a panel sur
@@ -101,6 +99,7 @@ public class InterficieGrafica extends JFrame {
         panelSur.add(conversionNumericas.getPanel1(), "conversionNum");
         panelSur.add(keyboardMediana.getPanlePrincipal(), "meidana");
         panelSur.add(cambiosDeUnidad.getPanelPrincipal(), "cambioUnidad");
+        panelSur.add(keypadMoneda.getPanelPrincipal(), "Moneda");
 
         /*CARD CHOOSER KEYPAD*/
         TipoOP.addActionListener(new ActionListener() {
@@ -142,6 +141,8 @@ public class InterficieGrafica extends JFrame {
                     cardLayout.show(panelSur, "meidana");
                 } else if (TipoOP.getSelectedIndex() == 10) {
                     cardLayout.show(panelSur, "cambioUnidad");
+                } else if (TipoOP.getSelectedIndex() == 11) {
+                    cardLayout.show(panelSur, "Moneda");
                 }
 
             }
@@ -163,5 +164,14 @@ public class InterficieGrafica extends JFrame {
 
     }
 
+    private void changeFont() {
+        this.Entrada.setFont(this.fuentePrinicpal);
+        this.Entrada2.setFont(this.fuentePrinicpal);
+        this.Salida.setFont(this.fuentePrinicpal);
+    }
 
+    public void setFuentePrinicpal(Font fuentePrinicpal) {
+        this.fuentePrinicpal = fuentePrinicpal;
+        changeFont();
+    }
 }

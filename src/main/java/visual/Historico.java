@@ -1,15 +1,11 @@
 package visual;
 
 import javax.swing.*;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Creado por: mmonteiro
@@ -80,7 +76,6 @@ public class Historico {
             });
             InterficieGrafica.indexImpresas++;
         }
-
 
     }
 
