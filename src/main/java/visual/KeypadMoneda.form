@@ -16,8 +16,8 @@
           <model>
             <item value="€"/>
             <item value="$"/>
-            <item value="CHF"/>
             <item value="CAD $"/>
+            <item value="CHF"/>
           </model>
         </properties>
       </component>
@@ -47,8 +47,8 @@
           <model>
             <item value="€"/>
             <item value="$"/>
-            <item value="CHF"/>
             <item value="CAD $"/>
+            <item value="CHF"/>
           </model>
         </properties>
       </component>
