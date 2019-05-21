@@ -1,21 +1,15 @@
 package visual;
 
-import com.google.gson.Gson;
-import jdk.nashorn.internal.parser.JSONParser;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
-import sun.net.www.http.HttpClient;
-
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
-import java.util.Currency;
 import java.util.LinkedList;
 
 /**
@@ -117,7 +111,7 @@ public class KeypadMoneda {
             currency.addLast(Double.parseDouble(c));
         } catch (IOException e) {
             currency.addLast(1.12);
-            currency.addLast(3.0);
+            currency.addLast(1.50);
             currency.addLast(1.13);
         }
     }
