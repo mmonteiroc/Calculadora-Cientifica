@@ -6,7 +6,6 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.LinkedList;
-
 /**
  * Creado por: mmonteiro
  * miguelmonteiroclaveri@gmail.com
@@ -55,7 +54,6 @@ public class Historico {
                     ig.Entrada2.setText(Operacion1);
                     ig.Salida.setText(result);
                 }
-
             }
 
         });
