@@ -10,12 +10,12 @@ import java.awt.event.ActionListener;
 
 /**
  * @author Miguel Monteiro Claveri
- *
+ * <p>
  * miguelmonteiroclaveri@gmail.com
  * github.com/mmonteiroc/Calculadora-Cientifica
  * Paquete visual
  * Proyecto Calculadora
- *
+ * <p>
  * Esta clase nos permite crear un keypad
  * para poder trabajar y operar con matrices
  */
@@ -189,9 +189,9 @@ public class KeyboardMatrices {
 
     /**
      * @param mat recibe una matriz a escribir
-     *
-     * Este metodo escribe los valores de una
-     * matriz en el panel visual de dicha matriz
+     *            <p>
+     *            Este metodo escribe los valores de una
+     *            matriz en el panel visual de dicha matriz
      */
     private void rellenarResultado(double[][] mat) {
         m3_1.setText(mat[0][0] + "");
@@ -210,7 +210,7 @@ public class KeyboardMatrices {
 
     /**
      * @return JPanel
-     *
+     * <p>
      * Este metodo lo que hace es
      * retornar el panel principal de esta clase
      */

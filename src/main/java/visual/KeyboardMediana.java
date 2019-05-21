@@ -7,12 +7,12 @@ import java.util.LinkedList;
 
 /**
  * @author Miguel Monteiro Claveri
- *
+ * <p>
  * miguelmonteiroclaveri@gmail.com
  * github.com/mmonteiroc
  * Paquete visual
  * Proyecto Calculadora
- *
+ * <p>
  * Esta clase nos permite representar un
  * keypad especifico solo para calcular
  * medianas/varianças de conjuntos de numeros
@@ -88,7 +88,7 @@ public class KeyboardMediana {
     /**
      * @param nums conjunto de numeros a trabajar
      * @return retorna un double que es la mediana de dicho conjunto
-     *
+     * <p>
      * Este metodo lo que hace es calcular la
      * mediana de un conjunto de numeros
      */
@@ -102,9 +102,9 @@ public class KeyboardMediana {
 
     /**
      * @param nums conjunto de numeros a calcular
-     * @param avg mediana de dichos numeros a calcular
+     * @param avg  mediana de dichos numeros a calcular
      * @return retorna un double que es la variança de dichos numeros
-     *
+     * <p>
      * Este metodo lo que hace es calcular
      * la variança de un conjunto de numeros
      */
@@ -123,7 +123,7 @@ public class KeyboardMediana {
 
     /**
      * @return JPanel
-     *
+     * <p>
      * Este metodo lo que hace es
      * retornar el panel principal de esta clase
      */

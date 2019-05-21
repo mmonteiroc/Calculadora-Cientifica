@@ -2,20 +2,23 @@ package visual;
 
 import evaluator.Evaluator;
 import evaluator.Token;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
  * @author Miguel Monteiro Claveri
- *
+ * <p>
  * miguelmonteiroclaveri@gmail.com
  * github.com/mmonteiroc/Calculadora-Cientifica
  * Paquete visual
  * Proyecto Calculadora
  */
 public class KeyboardNormal {
-    private JPanel KeypadNormal;
+
+    // atributos
+    private JPanel panelPrincipal;
     private JButton boton1;
     private JButton Suma;
     private JButton boton2;
@@ -39,16 +42,21 @@ public class KeyboardNormal {
     private JButton parIzq;
     private JButton parDch;
     private JButton exponente;
-    private JPanel KeyNormal;
     private JButton ASCIIButton;
 
 
+    /**
+     * @param ig Interficie grafica que pasamos para
+     *           poder modificar campos visuales que
+     *           el usuario ve
+     *           <p>
+     *           Este constructor nos permite definir todos los
+     *           listener que necesitamos en este keypad para ç
+     *           poder hacer operaciones normales
+     */
     public KeyboardNormal(final InterficieGrafica ig) {
 
-
-
         /*Acciones añadir numeros*/
-
         boton0.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -111,8 +119,6 @@ public class KeyboardNormal {
         });
 
         /*Acciones añadir operaciones al input*/
-
-
         Suma.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -173,28 +179,26 @@ public class KeyboardNormal {
                     // normal
                     result = "" + Evaluator.calculate(ig.Entrada.getText());
                     ig.Salida.setText(result);
-                    ig.historico.addLast(new String[]{
+                    InterficieGrafica.historico.addLast(new String[]{
                             ig.Entrada.getText(), "", result, "Decimal"
                     });
                 } else if (ig.TipoOP.getSelectedIndex() == 3) {
                     // Polaca inversa
                     result = "" + Evaluator.calcRPN(Token.getTokens(ig.Entrada.getText()));
                     ig.Salida.setText(result);
-                    ig.historico.addLast(new String[]{
+                    InterficieGrafica.historico.addLast(new String[]{
                             ig.Entrada.getText(), "", result, "RPN"
                     });
                 }
-
-
-
             }
         });
 
+        /*Operaciones trigonometricas*/
         cos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String s = String.format("%.3f DEGREES", Math.cos(Math.toRadians(Double.parseDouble(ig.Entrada.getText()))));
-                ig.historico.addLast(new String[]{
+                InterficieGrafica.historico.addLast(new String[]{
                         ig.Entrada.getText(), "", s, "Decimal"
                 });
                 ig.Salida.setText(s);
@@ -206,15 +210,27 @@ public class KeyboardNormal {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String s = String.format("%.3f DEGREES", Math.sin(Math.toRadians(Double.parseDouble(ig.Entrada.getText()))));
-                ig.historico.addLast(new String[]{
+                InterficieGrafica.historico.addLast(new String[]{
                         ig.Entrada.getText(), "", s, "Decimal"
                 });
                 ig.Salida.setText(s);
 
             }
         });
+        logaritmo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
+                double numero = Double.parseDouble(ig.Entrada.getText());
+                String s = String.format("Log10(%.1f) = %.3f ", numero, Math.log10(numero));
+                InterficieGrafica.historico.addLast(new String[]{
+                        ig.Entrada.getText(), "", s, "Decimal"
+                });
+                ig.Salida.setText(s);
+            }
+        });
 
+        /*Calcular codigo ascii/Unicode*/
         ASCIIButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -247,18 +263,14 @@ public class KeyboardNormal {
         });
     }
 
+
     /**
-     * @param radians
-     * @return
+     * @return JPanel
+     * <p>
+     * Este simple metodo retorna el
+     * panel prinicpal de la clase
      */
-    private double setDegrees(double radians) {
-
-        return radians * 200 / Math.PI;
-
-    }
-
-
-    public JPanel getKeypadNormal() {
-        return KeypadNormal;
+    public JPanel getPanelPrincipal() {
+        return panelPrincipal;
     }
 }

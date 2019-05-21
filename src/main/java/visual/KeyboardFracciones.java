@@ -9,12 +9,12 @@ import java.util.LinkedList;
 
 /**
  * @author Miguel Monteiro Claveri
- *
+ * <p>
  * miguelmonteiroclaveri@gmail.com
  * github.com/mmonteiroc
  * Paquete visual
  * Proyecto Calculadora
- *
+ * <p>
  * Esta clase nos permite definir un keypad
  * para trabajar con fracciones
  */
@@ -166,9 +166,9 @@ public class KeyboardFracciones {
 
 
     /**
-     * @param input
+     * @param input String que representa todas las operaciones de fracciones
      * @return retornamos una string con la fraccion resultante de toda la operacion
-     *
+     * <p>
      * Este metodo nos permite leer todas las fracciones de el input e ir
      * calculandolas hasta que hayamos calculado todas y retornamos la fraccion resultante
      */

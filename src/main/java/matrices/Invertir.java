@@ -12,7 +12,7 @@ public class Invertir {
 
     //OVERLOADING CON MENSAJE DE ERROR PREDEFINIDO
     //VERSION TOTALMENTE FUNCIONAL TODOS LOS TAMAÑOS CUADRADAS
-    public static double[][] matrizInversa(double matrix[][]) {
+    public static double[][] matrizInversa(double[][] matrix) {
 
         double det = determinante(matrix);
         if (det == 0) {
@@ -52,7 +52,7 @@ public class Invertir {
 
     private static double[][] sacarMenor(double[][] mat, int filaAquitar, int colAquitar) {
 
-        double devolver[][] = new double[mat.length - 1][mat[0].length - 1];
+        double[][] devolver = new double[mat.length - 1][mat[0].length - 1];
         int j = 0, i = 0;
 
         for (int k = 0; k < mat.length; k++) {

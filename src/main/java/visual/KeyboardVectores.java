@@ -1,18 +1,25 @@
 package visual;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.LinkedList;
+
 /**
  * @author Miguel Monteiro Claveri
- *
+ * <p>
  * miguelmonteiroclaveri@gmail.com
  * github.com/mmonteiroc
  * Paquete visual
  * Proyecto Calculadora
+ * <p>
+ * Esta clase nos permite representar un keypad para
+ * poder hacer operaciones con vector(es)
  */
 public class KeyboardVectores {
+
+    // Atributos
     private JPanel PanelPrincipal;
     private JButton moduloDelVectorButton;
     private JButton restaDeVectoresButton;
@@ -20,8 +27,16 @@ public class KeyboardVectores {
     private JButton distanciaEntre2VectoresButton;
     private JButton clearALLButton;
 
+    /**
+     * @param ig Interficie grafica que nos pasan
+     *           para poder interactuar con lo que
+     *           ve el usuario
+     *           <p>
+     *           Este constructor inicializamos los listeners
+     *           que necesitaremos para poder interactuar con dicho keypad
+     */
     KeyboardVectores(final InterficieGrafica ig) {
-
+        // Operaciones de vectores
         sumaDeVectoresButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -50,7 +65,6 @@ public class KeyboardVectores {
                 });
             }
         });
-
 
         restaDeVectoresButton.addActionListener(new ActionListener() {
             @Override
@@ -89,17 +103,25 @@ public class KeyboardVectores {
             }
         });
 
+        // borramos input/output
         clearALLButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ig.Entrada.setText("");
+                ig.Salida.setText("");
             }
         });
-
-
     }
 
 
+    /**
+     * @param stringVectores String conteniendo todos los vecotres a operar
+     * @return retornamos Linked List de array de Integers.
+     * <p>
+     * Este metodo nos permite recibir un string con todos
+     * los vecotres que queremos operar y los retorna en
+     * forma de linked list y separados
+     */
     private LinkedList<Integer[]> getVectors(String stringVectores) {
         LinkedList<Integer[]> vectores = new LinkedList<Integer[]>();
         Integer[] help = new Integer[2];
@@ -125,15 +147,23 @@ public class KeyboardVectores {
         return vectores;
     }
 
-
+    /**
+     * @return JPanel
+     * <p>
+     * Este pequeño metodo nos sirve para
+     * retornar el panel principal de la clase
+     */
     public JPanel getPanelPrincipal() {
         return PanelPrincipal;
     }
 
     /**
-     * @param a
-     * @param b
-     * @return
+     * @param a vector 1
+     * @param b vector 2
+     * @return distancia entre los dos vecotres
+     * <p>
+     * Este metodo te clalcula la distancia
+     * entre dos vectores que tu les pases
      */
     private double distanciaEntre(Integer[] a, Integer[] b) {
         double distancia = 0;

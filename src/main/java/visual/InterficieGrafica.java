@@ -1,4 +1,5 @@
 package visual;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,12 +8,12 @@ import java.util.LinkedList;
 
 /**
  * @author Miguel Monteiro Claveri
- *
+ * <p>
  * miguelmonteiroclaveri@gmail.com
  * github.com/mmonteiroc/Calculadora-Cientifica
  * Paquete visual
  * Proyecto Calculadora
- *
+ * <p>
  * Esta clase nos permite definir lo que sera
  * nuestra ventana prinicpal de nuestra clase
  */
@@ -93,8 +94,8 @@ public class InterficieGrafica extends JFrame {
 
         panelSur.setLayout(cardLayout);
         // Asignando layouts a panel sur
-        panelSur.add(kn.getKeypadNormal(), "PanelNormal");
-        panelSur.add(kr.getPanel(), "PanelRomano");
+        panelSur.add(kn.getPanelPrincipal(), "PanelNormal");
+        panelSur.add(kr.getPanelPrincipal(), "PanelRomano");
         panelSur.add(historicoLayout.getPanelPrincipal(), "PanelHistorico");
         panelSur.add(kp.getPanelPrincipal(), "PanlePolinomios");
         panelSur.add(keyboardMatrices.getPanelPrincipal(), "PanelMatrices");
@@ -187,9 +188,9 @@ public class InterficieGrafica extends JFrame {
 
     /**
      * @param fuentePrinicpal fuente a usar
-     *
-     * Este otro metodo recibe que fuente hemos
-     * de usar nueva y llama a changeFont
+     *                        <p>
+     *                        Este otro metodo recibe que fuente hemos
+     *                        de usar nueva y llama a changeFont
      */
     public void setFuentePrinicpal(Font fuentePrinicpal) {
         this.fuentePrinicpal = fuentePrinicpal;

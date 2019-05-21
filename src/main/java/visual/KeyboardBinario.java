@@ -8,12 +8,12 @@ import java.awt.event.MouseEvent;
 
 /**
  * @author Miguel Monteiro Claveri
- *
+ * <p>
  * miguelmonteiroclaveri@gmail.com
  * github.com/mmonteiroc
  * Paquete visual
  * Proyecto Calculadora
- *
+ * <p>
  * Esta clase nos permite definir un keypad para
  * poder trabajar con binario en nuestra applicacion
  */
@@ -146,7 +146,7 @@ public class KeyboardBinario {
 
     /**
      * @return JPanel
-     *
+     * <p>
      * Este pequeño metodo nos permite retornar
      * el panel principal de esta clase
      */

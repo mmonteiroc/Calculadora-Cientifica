@@ -6,14 +6,15 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.LinkedList;
+
 /**
  * @author Miguel Monteiro Claveri
- *
+ * <p>
  * miguelmonteiroclaveri@gmail.com
  * github.com/mmonteiroc/Calculadora-Cientifica
  * Paquete visual
  * Proyecto Calculadora
- *
+ * <p>
  * Esta clase nos permite definir lo que es una ventana para
  * poder ver el historico de operaciones que nosotros realizamos
  */
@@ -53,10 +54,10 @@ public class Historico {
             @Override
             public void mouseClicked(MouseEvent e) {
                 System.out.println("Clic en la tabla");
-                String tipoOperacion = ig.historico.get(table1.getSelectedRow())[3];
-                String Operacion = ig.historico.get(table1.getSelectedRow())[0];
-                String Operacion1 = ig.historico.get(table1.getSelectedRow())[1];
-                String result = ig.historico.get(table1.getSelectedRow())[2];
+                String tipoOperacion = InterficieGrafica.historico.get(table1.getSelectedRow())[3];
+                String Operacion = InterficieGrafica.historico.get(table1.getSelectedRow())[0];
+                String Operacion1 = InterficieGrafica.historico.get(table1.getSelectedRow())[1];
+                String result = InterficieGrafica.historico.get(table1.getSelectedRow())[2];
 
                 // Decimal
                 if (tipoOperacion.equals("Decimal") || tipoOperacion.equals("Romano")) {
@@ -75,7 +76,7 @@ public class Historico {
 
     /**
      * @return JPanel
-     *
+     * <p>
      * Este simple metodo lo que hace es
      * retornar el panel prinicpal de esta clase
      */
@@ -86,9 +87,9 @@ public class Historico {
 
     /**
      * @param filas filas a añadir a la tabla
-     *
-     * Este metodo lo que hace es ir fila por fila y las
-     * va añadiendo a la tabla para que las podamos ver
+     *              <p>
+     *              Este metodo lo que hace es ir fila por fila y las
+     *              va añadiendo a la tabla para que las podamos ver
      */
     void setValuesTable(LinkedList<String[]> filas) {
         DefaultTableModel tabla = (DefaultTableModel) table1.getModel();

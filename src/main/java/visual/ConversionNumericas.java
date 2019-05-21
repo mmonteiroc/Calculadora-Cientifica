@@ -6,12 +6,12 @@ import java.awt.event.ActionListener;
 
 /**
  * @author Miguel Monteiro Claveri
- *
+ * <p>
  * miguelmonteiroclaveri@gmail.com
  * github.com/mmonteiroc
  * Paquete visual
  * Proyecto Calculadora
- *
+ * <p>
  * Esta clase nos permite definir un keypad
  * para poder hacer conversiones numericas
  */
@@ -130,7 +130,7 @@ public class ConversionNumericas {
     /**
      * @param s Decimal
      * @return Binario
-     *
+     * <p>
      * Este metodo nos permite
      * transformar de decimal a binario
      */
@@ -141,7 +141,7 @@ public class ConversionNumericas {
     /**
      * @param s Decimal
      * @return Octal
-     *
+     * <p>
      * Este metodo nos permite
      * transformar de decimal a Octal
      */
@@ -152,7 +152,7 @@ public class ConversionNumericas {
     /**
      * @param s Decimal
      * @return Hex
-     *
+     * <p>
      * Este metodo nos permite
      * transformar de decimal a Hex
      */
@@ -166,7 +166,7 @@ public class ConversionNumericas {
     /**
      * @param s Binario
      * @return Decimal
-     *
+     * <p>
      * Este metodo nos permite
      * transformar de binario a decimal
      */
@@ -177,7 +177,7 @@ public class ConversionNumericas {
     /**
      * @param s Binario
      * @return Octal
-     *
+     * <p>
      * Este metodo nos permite
      * transformar de binario a Octal
      */
@@ -188,7 +188,7 @@ public class ConversionNumericas {
     /**
      * @param s Binario
      * @return Hex
-     *
+     * <p>
      * Este metodo nos permite
      * transformar de binario a Hex
      */
@@ -202,7 +202,7 @@ public class ConversionNumericas {
     /**
      * @param s Octal
      * @return Decimal
-     *
+     * <p>
      * Este metodo nos permite
      * transformar de octal a decimal
      */
@@ -213,7 +213,7 @@ public class ConversionNumericas {
     /**
      * @param s Octal
      * @return Binario
-     *
+     * <p>
      * Este metodo nos permite
      * transformar de octal a binario
      */
@@ -224,7 +224,7 @@ public class ConversionNumericas {
     /**
      * @param s Octal
      * @return Hex
-     *
+     * <p>
      * Este metodo nos permite
      * transformar de octal a Hex
      */
@@ -237,7 +237,7 @@ public class ConversionNumericas {
     /**
      * @param s Hex
      * @return Decimal
-     *
+     * <p>
      * Este metodo nos permite
      * transformar de hex a decimal
      */
@@ -248,7 +248,7 @@ public class ConversionNumericas {
     /**
      * @param s Hex
      * @return binario
-     *
+     * <p>
      * Este metodo nos permite
      * transformar de hex a binario
      */
@@ -259,7 +259,7 @@ public class ConversionNumericas {
     /**
      * @param s Hex
      * @return Octal
-     *
+     * <p>
      * Este metodo nos permite
      * transformar de hex a Octal
      */
@@ -271,7 +271,7 @@ public class ConversionNumericas {
     /**
      * @param n numero en binario
      * @return numero convertido a deminal
-     *
+     * <p>
      * Este metodo nos permite transformar
      * un numero binario a decimal
      */
@@ -288,7 +288,7 @@ public class ConversionNumericas {
 
     /**
      * @return JPanel de esta clase
-     *
+     * <p>
      * Este simple metodo nos retorna el
      * panel principal de esta clase.
      */

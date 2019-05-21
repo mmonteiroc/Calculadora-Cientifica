@@ -718,7 +718,7 @@ public class Polynomial {
     }
 
     /**
-     * @param array
+     * @param array array a copiar
      * @return copia de array
      * <p>
      * FUNCION QUE TE DEVUELVE UNA
@@ -736,7 +736,7 @@ public class Polynomial {
      * @param coeficientes Recibe un array de floats
      * @return devuelve el mismo array que ha recibido pero invertido (IMPORTANTE, DEVUELVE UN NUEVO ARRAY, EL ORIGINAL NO SE MODIFICA)
      */
-    private float[] invertirArray(float coeficientes[]) {
+    private float[] invertirArray(float[] coeficientes) {
 
         //te devuelve una copia
         float[] nuevoCoeficiente = copiarArray(coeficientes);
@@ -853,7 +853,7 @@ public class Polynomial {
     /**
      * @param cofi          Array de floats
      * @param indice        es el indice de la raiz que hay que calcular
-     * @param discriminante
+     * @param discriminante discriminante
      * @return devolvemos un array con las soluciones
      * <p>
      * tenemos un if con un else el cual definira si ese polinomio tiene 1 o 2 soluciones
@@ -898,9 +898,6 @@ public class Polynomial {
             if (cofi[i] != 0) x++;
         }
 
-        if (x == 2 || (x == 1 && cofi[cofi.length - 1] == 0)) {
-            return true;
-        }
-        return false;
+        return x == 2 || (x == 1 && cofi[cofi.length - 1] == 0);
     }
 }

@@ -2,19 +2,25 @@ package visual;
 
 import evaluator.Evaluator;
 import roman.RomanConverter;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
  * @author Miguel Monteiro Claveri
- *
+ * <p>
  * miguelmonteiroclaveri@gmail.com
  * github.com/mmonteiroc/Calculadora-Cientifica
  * Paquete visual
  * Proyecto Calculadora
+ * <p>
+ * Clase que nos permite representar un keypad
+ * para poder trabajar con numeros romanos
  */
 public class KeyboardRoman {
+
+    // Atributos
     private JButton boton_I;
     private JButton suma;
     private JButton boton_V;
@@ -27,10 +33,20 @@ public class KeyboardRoman {
     private JButton division;
     private JButton multiplicar;
     private JButton Resultado;
-    private JPanel panel;
+    private JPanel panelPrincipal;
     private JButton clear;
 
-    public KeyboardRoman(final InterficieGrafica ig) {
+
+    /**
+     * @param ig Interficie grafica que nos pasan
+     *           para poder interactuar con lo que
+     *           ve el usuario
+     *           <p>
+     *           Este constructor nos permite inicializar todos los
+     *           listener que usara el usuario para interactuar
+     *           con los botones de dicho keypad
+     */
+    KeyboardRoman(final InterficieGrafica ig) {
 
         /*Acciones key romano*/
         boton_I.addActionListener(new ActionListener() {
@@ -75,6 +91,8 @@ public class KeyboardRoman {
                 ig.Entrada.setText(ig.Entrada.getText() + "M");
             }
         });
+
+        // Acciones para añadir operadores
         suma.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -99,6 +117,7 @@ public class KeyboardRoman {
                 ig.Entrada.setText(ig.Entrada.getText() + "/");
             }
         });
+        // Opcion borrar input y output
         clear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -107,7 +126,7 @@ public class KeyboardRoman {
             }
         });
 
-
+        // boton para calcular resultado
         Resultado.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -146,7 +165,13 @@ public class KeyboardRoman {
         });
     }
 
-    public JPanel getPanel() {
-        return panel;
+    /**
+     * @return JPanel
+     * <p>
+     * Este pequeño metodo nos sirve para
+     * retornar el panel principal de la clase
+     */
+    public JPanel getPanelPrincipal() {
+        return panelPrincipal;
     }
 }

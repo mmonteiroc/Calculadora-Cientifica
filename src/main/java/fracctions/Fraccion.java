@@ -13,7 +13,6 @@ public class Fraccion {
     private double numerador;
     private double denominador;
 
-
     // Constructores
     public Fraccion(double numerador, double denominador) {
         this.denominador = denominador;
