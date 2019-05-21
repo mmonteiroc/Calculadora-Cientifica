@@ -15,10 +15,19 @@ import java.util.LinkedList;
  */
 public class Historico {
 
-
+    // Atributos
     private JPanel PanelPrincipal;
     private JTable table1;
 
+    /**
+     * @param ig Nos pasan una interficie rafica que es lo que el usuario esta viendo.
+     *           <p>
+     *           Este constructor lo que acemos es definir las columnas del
+     *           historial y definir algunos ajustes de dicha tabla,
+     *           despues lo que hacemos es añadir un listener que cuando
+     *           clickemos en la tabla, la operacion se ponga en el input y output
+     *           para poder recuperar dicha operacion si queremos
+     */
     // Constructor
     Historico(final InterficieGrafica ig) {
         /*Modelo tabla*/
@@ -60,11 +69,23 @@ public class Historico {
 
     }
 
+    /**
+     * @return JPanel
+     *
+     * Este simple metodo lo que hace es
+     * retornar el panel prinicpal de esta clase
+     */
     public JPanel getPanelPrincipal() {
         return PanelPrincipal;
     }
 
 
+    /**
+     * @param filas filas a añadir a la tabla
+     *
+     * Este metodo lo que hace es ir fila por fila y las
+     * va añadiendo a la tabla para que las podamos ver
+     */
     void setValuesTable(LinkedList<String[]> filas) {
         DefaultTableModel tabla = (DefaultTableModel) table1.getModel();
 
@@ -74,7 +95,6 @@ public class Historico {
             });
             InterficieGrafica.indexImpresas++;
         }
-
     }
 
 }
