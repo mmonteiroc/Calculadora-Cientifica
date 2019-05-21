@@ -6,17 +6,28 @@ import java.awt.event.ActionListener;
 import java.util.LinkedList;
 
 /**
- * Creado por: mmonteiro
+ * @author Miguel Monteiro Claveri
+ *
  * miguelmonteiroclaveri@gmail.com
  * github.com/mmonteiroc/Calculadora-Cientifica
  * Paquete visual
  * Proyecto Calculadora
+ *
+ * Esta clase nos permite definir lo que sera
+ * nuestra ventana prinicpal de nuestra clase
  */
 public class InterficieGrafica extends JFrame {
-    //Historico
+    // Atributos
+    // Package
     static LinkedList<String[]> historico = new LinkedList<String[]>();
     static int indexImpresas = 0;
     static int indexOperaciones = 1;
+    JComboBox TipoOP;
+    JPanel Inputs;
+    JTextField Entrada;
+    JTextField Entrada2;
+    JPanel output;
+    JTextField Salida;
 
     // Privado
     private JPanel panel1;
@@ -24,42 +35,36 @@ public class InterficieGrafica extends JFrame {
     private JPanel ParteNorte;
     private JPanel PanelCentral;
     private JComboBox chooserHistorico;
-    JComboBox TipoOP;
     private JPanel panelSur;
     private Font fuentePrinicpal = new Font("Arial", Font.PLAIN, 20);
-
-    // Package
-
-    JPanel Inputs;
-    JTextField Entrada;
-    JTextField Entrada2;
-
-    JPanel output;
-    JTextField Salida;
-
-
-    // Card layout
     private CardLayout cardLayout = new CardLayout();
 
 
-    // Constructor
+    /**
+     * Este constructor lo que hace es inicializar todas las
+     * variables que necesitamos para usar nuestra applicacion.
+     * <p>
+     * Aparte tambien definimos al inicio un par de variables
+     * como el tamaño minimo/maximo de la ventana de la aplicacion etc
+     * <p>
+     * Este constructor no recibe ningun parametro
+     */
     public InterficieGrafica() {
         // Extablece panel principal
         this.setContentPane(panel1);
 
+        /*Definimos variables de nuestra ventana*/
         this.setMinimumSize(new Dimension(450, 500));
         this.setMaximumSize(new Dimension(451, 501));
         this.setSize(new Dimension(450, 500));
         this.output.setMinimumSize(new Dimension(200, 60));
         this.output.setMaximumSize(new Dimension(201, 65));
         this.output.setSize(new Dimension(20, 63));
+
         /*Barra menus*/
         JMenuBar menuBar = new JMenuBar();
         this.setJMenuBar(menuBar);
-
-
-        /*Menu File*/
-
+        /*Menu Ajustes*/
         JMenu settings = new JMenu("Ajustes");
         menuBar.add(settings);
         JMenuItem mi = new JMenuItem("Editar fuente");
@@ -134,20 +139,26 @@ public class InterficieGrafica extends JFrame {
                     // Vectores
                     cardLayout.show(panelSur, "PanelVectores");
                 } else if (TipoOP.getSelectedIndex() == 7) {
+                    // Fracciones
                     cardLayout.show(panelSur, "PanelFracciones");
                 } else if (TipoOP.getSelectedIndex() == 8) {
+                    // COnversion de numeros
                     cardLayout.show(panelSur, "conversionNum");
                 } else if (TipoOP.getSelectedIndex() == 9) {
+                    // Medianas y varainça
                     cardLayout.show(panelSur, "meidana");
                 } else if (TipoOP.getSelectedIndex() == 10) {
+                    // Cambios de unidades
                     cardLayout.show(panelSur, "cambioUnidad");
                 } else if (TipoOP.getSelectedIndex() == 11) {
+                    // Cambios de moneda
                     cardLayout.show(panelSur, "Moneda");
                 }
-
             }
         });
 
+
+        /*Definimos si queremos seleccionar historico o keypad*/
         chooserHistorico.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -164,12 +175,22 @@ public class InterficieGrafica extends JFrame {
 
     }
 
+    /**
+     * Este pequeño metodo nos permite
+     * modificar la fuente que estamos usando
+     */
     private void changeFont() {
         this.Entrada.setFont(this.fuentePrinicpal);
         this.Entrada2.setFont(this.fuentePrinicpal);
         this.Salida.setFont(this.fuentePrinicpal);
     }
 
+    /**
+     * @param fuentePrinicpal fuente a usar
+     *
+     * Este otro metodo recibe que fuente hemos
+     * de usar nueva y llama a changeFont
+     */
     public void setFuentePrinicpal(Font fuentePrinicpal) {
         this.fuentePrinicpal = fuentePrinicpal;
         changeFont();

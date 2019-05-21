@@ -7,11 +7,15 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.LinkedList;
 /**
- * Creado por: mmonteiro
+ * @author Miguel Monteiro Claveri
+ *
  * miguelmonteiroclaveri@gmail.com
  * github.com/mmonteiroc/Calculadora-Cientifica
  * Paquete visual
  * Proyecto Calculadora
+ *
+ * Esta clase nos permite definir lo que es una ventana para
+ * poder ver el historico de operaciones que nosotros realizamos
  */
 public class Historico {
 

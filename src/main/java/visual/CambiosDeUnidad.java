@@ -4,11 +4,15 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 /**
- * Creado por: mmonteiro
+ * @author Miguel Monteiro Claveri
+ *
  * miguelmonteiroclaveri@gmail.com
  * github.com/mmonteiroc
  * Paquete visual
  * Proyecto Calculadora
+ *
+ * Esta clase nos permite crear un keypad que
+ * usaremos para realizar cambios de unidad
  */
 public class CambiosDeUnidad {
     /*Atributos*/
@@ -23,6 +27,7 @@ public class CambiosDeUnidad {
     /**
      * @param ig Recibimos la interficie grafica que el usuario estara viendo
      *           <p>
+     *
      *           Este metodo es el contructor de esta clase que nos permite definir un KeyPad para cambios de unidad.
      *           En este constructor lo que hacemos es añadir un listener de click al boton de convertir.
      */
@@ -65,7 +70,6 @@ public class CambiosDeUnidad {
             }
         });
     }
-
 
     /**
      * @return JPanel de esta clase

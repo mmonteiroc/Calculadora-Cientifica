@@ -5,11 +5,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Creado por: mmonteiro
+ * @author Miguel Monteiro Claveri
+ *
  * miguelmonteiroclaveri@gmail.com
  * github.com/mmonteiroc
  * Paquete visual
  * Proyecto Calculadora
+ *
+ * Esta clase nos permite definir un keypad
+ * para poder hacer conversiones numericas
  */
 public class ConversionNumericas {
 

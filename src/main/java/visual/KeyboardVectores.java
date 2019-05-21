@@ -5,7 +5,8 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.LinkedList;
 /**
- * Creado por: mmonteiro
+ * @author Miguel Monteiro Claveri
+ *
  * miguelmonteiroclaveri@gmail.com
  * github.com/mmonteiroc
  * Paquete visual

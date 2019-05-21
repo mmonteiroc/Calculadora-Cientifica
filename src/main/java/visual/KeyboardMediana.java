@@ -3,24 +3,38 @@ package visual;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
 import java.util.LinkedList;
 
 /**
- * Creado por: mmonteiro
+ * @author Miguel Monteiro Claveri
+ *
  * miguelmonteiroclaveri@gmail.com
  * github.com/mmonteiroc
  * Paquete visual
  * Proyecto Calculadora
+ *
+ * Esta clase nos permite representar un
+ * keypad especifico solo para calcular
+ * medianas/varianças de conjuntos de numeros
  */
 public class KeyboardMediana {
+    // Atributos
     private JButton CLEARALLButton;
     private JPanel panlePrincipal;
     private JButton CALCULARMEDIANAButton;
     private JButton CALCULARVARIANÇAButton;
 
 
+    /**
+     * @param ig Interficie grafica que nos pasan para
+     *           poder modificar lo que el usuario esta viendo
+     *           <p>
+     *           Constructor que usamos para inicializar todos
+     *           los listener que necesitamos en este keypad
+     */
     KeyboardMediana(final InterficieGrafica ig) {
+
+        // listener para calcular la mediana de un conjunto de numeros
         CALCULARMEDIANAButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -36,11 +50,11 @@ public class KeyboardMediana {
                         "",
                         ig.Salida.getText(),
                         "Mediana / Variança"
-
                 });
             }
         });
 
+        // Listener para calcular la variança de un conjunto de numeros
         CALCULARVARIANÇAButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -55,15 +69,29 @@ public class KeyboardMediana {
                         ig.Entrada.getText(),
                         ig.Salida.getText(),
                         "Mediana / Variança"
-
                 });
             }
         });
 
-
+        //Boton que nos permite borrar los input/output
+        CLEARALLButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ig.Entrada2.setText("");
+                ig.Salida.setText("");
+                ig.Entrada.setText("");
+            }
+        });
     }
 
 
+    /**
+     * @param nums conjunto de numeros a trabajar
+     * @return retorna un double que es la mediana de dicho conjunto
+     *
+     * Este metodo lo que hace es calcular la
+     * mediana de un conjunto de numeros
+     */
     private double calcMediana(LinkedList<Double> nums) {
         double result = 0;
         for (double d : nums) {
@@ -72,6 +100,14 @@ public class KeyboardMediana {
         return result /= nums.size();
     }
 
+    /**
+     * @param nums conjunto de numeros a calcular
+     * @param avg mediana de dichos numeros a calcular
+     * @return retorna un double que es la variança de dichos numeros
+     *
+     * Este metodo lo que hace es calcular
+     * la variança de un conjunto de numeros
+     */
     private double calcVariança(LinkedList<Double> nums, double avg) {
         double result = 0;
         double ayuda = 0;
@@ -85,7 +121,12 @@ public class KeyboardMediana {
         return result;
     }
 
-
+    /**
+     * @return JPanel
+     *
+     * Este metodo lo que hace es
+     * retornar el panel principal de esta clase
+     */
     public JPanel getPanlePrincipal() {
         return panlePrincipal;
     }

@@ -9,11 +9,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Creado por: mmonteiro
+ * @author Miguel Monteiro Claveri
+ *
  * miguelmonteiroclaveri@gmail.com
  * github.com/mmonteiroc/Calculadora-Cientifica
  * Paquete visual
  * Proyecto Calculadora
+ *
+ * Esta clase nos permite crear un keypad
+ * para poder trabajar y operar con matrices
  */
 public class KeyboardMatrices {
     private JPanel PanelPrincipal;
@@ -63,9 +67,13 @@ public class KeyboardMatrices {
     private JButton transponerMatriz1Button;
 
 
+    /**
+     * @param ig Este constructor lo que hace es inicializar todos los
+     *           listener que nosotros necesitemos para poder trabajar con las matrices
+     */
     KeyboardMatrices(InterficieGrafica ig) {
 
-
+        /*Operaciones con las matrices*/
         transponerMatriz1Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -88,7 +96,6 @@ public class KeyboardMatrices {
             }
         });
 
-
         invertirMatriz1Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -98,6 +105,8 @@ public class KeyboardMatrices {
             }
         });
 
+
+        // Este listener de este boton nos permite borrar todos los campos
         clearAllButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -130,10 +139,15 @@ public class KeyboardMatrices {
                 m3_9.setText("");
             }
         });
-
     }
 
 
+    /**
+     * @return retorna una matriz
+     * <p>
+     * Este metodo nos permite recoger la matriz 1
+     * y retornarla como array
+     */
     private double[][] recogerMatriz1() {
         double[][] dev = new double[3][3];
         // Primera fila
@@ -149,6 +163,12 @@ public class KeyboardMatrices {
         return dev;
     }
 
+    /**
+     * @return retorna una matriz
+     * <p>
+     * Este metodo nos permite recoger la matriz 2
+     * y retornarla como array
+     */
     private double[][] recogerMatriz2() {
         double[][] devolver = new double[3][3];
 
@@ -166,6 +186,13 @@ public class KeyboardMatrices {
         return devolver;
     }
 
+
+    /**
+     * @param mat recibe una matriz a escribir
+     *
+     * Este metodo escribe los valores de una
+     * matriz en el panel visual de dicha matriz
+     */
     private void rellenarResultado(double[][] mat) {
         m3_1.setText(mat[0][0] + "");
         m3_2.setText(mat[0][1] + "");
@@ -181,8 +208,13 @@ public class KeyboardMatrices {
     }
 
 
-
+    /**
+     * @return JPanel
+     *
+     * Este metodo lo que hace es
+     * retornar el panel principal de esta clase
+     */
     public JPanel getPanelPrincipal() {
-        return PanelPrincipal;
+        return this.PanelPrincipal;
     }
 }

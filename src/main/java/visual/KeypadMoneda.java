@@ -13,7 +13,8 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 /**
- * Creado por: mmonteiro
+ * @author Miguel Monteiro Claveri
+ *
  * miguelmonteiroclaveri@gmail.com
  * github.com/mmonteiroc
  * Paquete visual

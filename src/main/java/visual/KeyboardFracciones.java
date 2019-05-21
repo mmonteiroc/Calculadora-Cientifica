@@ -1,6 +1,5 @@
 package visual;
 
-import evaluator.Evaluator;
 import fracctions.Fraccion;
 
 import javax.swing.*;
@@ -9,13 +8,19 @@ import java.awt.event.ActionListener;
 import java.util.LinkedList;
 
 /**
- * Creado por: mmonteiro
+ * @author Miguel Monteiro Claveri
+ *
  * miguelmonteiroclaveri@gmail.com
  * github.com/mmonteiroc
  * Paquete visual
  * Proyecto Calculadora
+ *
+ * Esta clase nos permite definir un keypad
+ * para trabajar con fracciones
  */
 public class KeyboardFracciones {
+
+    // Atributos
     private JPanel PanelPrincipal;
     private JButton a1Button;
     private JButton a2Button;
@@ -37,9 +42,13 @@ public class KeyboardFracciones {
     private char SIMBOLO_FRACCION = '|';
 
 
+    /**
+     * @param ig Este constructor lo usamos para inicializar todos
+     *           los listeners que nosotros necesitamos .
+     */
     KeyboardFracciones(final InterficieGrafica ig) {
 
-
+        // Listeners para añadir nums al input
         a1Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -101,6 +110,7 @@ public class KeyboardFracciones {
             }
         });
 
+        // Listeners para añadir operadores al input
         suma.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -139,15 +149,14 @@ public class KeyboardFracciones {
         });
 
 
+        // este listener lo que hace es llamar a la funcion calculateAllFraccions
         calcularResultadoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String parseFracciones = transformFraccions(ig.Entrada.getText());
-
-                ig.Salida.setText(parseFracciones);
-
-                ig.historico.addLast(new String[]{
-                        ig.Entrada.getText(), "", parseFracciones, "Fracciones"
+                String fraccionsCalculated = calculateAllFraccions(ig.Entrada.getText());
+                ig.Salida.setText(fraccionsCalculated);
+                InterficieGrafica.historico.addLast(new String[]{
+                        ig.Entrada.getText(), "", fraccionsCalculated, "Fracciones"
                 });
             }
         });
@@ -158,13 +167,14 @@ public class KeyboardFracciones {
 
     /**
      * @param input
-     * @return Este metodo nos permite leer todas las fracciones de el input e ir
+     * @return retornamos una string con la fraccion resultante de toda la operacion
+     *
+     * Este metodo nos permite leer todas las fracciones de el input e ir
      * calculandolas hasta que hayamos calculado todas y retornamos la fraccion resultante
      */
-    private String transformFraccions(String input) {
+    private String calculateAllFraccions(String input) {
 
         LinkedList<Fraccion> fraccions = new LinkedList<Fraccion>();
-
 
         char operador = 0;
         for (int i = 0; i < input.length(); i++) {
@@ -174,7 +184,7 @@ public class KeyboardFracciones {
                     fraccions.addLast(new Fraccion(Double.parseDouble(input.charAt(i) + ""), 1));
                 } else {
                     // HACEMOS
-                    if (input.charAt(i + 1) == '|') {
+                    if (input.charAt(i + 1) == SIMBOLO_FRACCION) {
                         fraccions.addLast(new Fraccion(Double.parseDouble(input.charAt(i) + ""), Double.parseDouble(input.charAt(i + 2) + "")));
                     } else {
                         fraccions.addLast(new Fraccion(Double.parseDouble(input.charAt(i) + ""), 1));
@@ -203,7 +213,6 @@ public class KeyboardFracciones {
                             break;
                     }
 
-
                     fraccions.remove(0);
                     fraccions.remove(0);
                     operador = 0;
@@ -214,11 +223,16 @@ public class KeyboardFracciones {
             }
         }
 
-
         return fraccions.get(0).toString();
     }
 
 
+    /**
+     * @return JPanel
+     * <p>
+     * Este simple metodo nos permite retornar el
+     * panel prinicpal de nuestro keypad
+     */
     public JPanel getPanelPrincipal() {
         return PanelPrincipal;
     }

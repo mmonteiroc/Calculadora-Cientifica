@@ -6,6 +6,13 @@ import java.awt.event.*;
 
 
 /**
+ * @author Miguel Monteiro Claveri
+ *
+ * miguelmonteiroclaveri@gmail.com
+ * github.com/mmonteiroc
+ * Paquete visual
+ * Proyecto Calculadora
+ *
  * Esta clase nos permite crear un dialogo de JSwing el cual nos permite
  * seleccionar y modificar la fuente de nuestra calculadora
  */

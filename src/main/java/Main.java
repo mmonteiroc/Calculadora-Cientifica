@@ -3,10 +3,10 @@ import visual.InterficieGrafica;
 import javax.swing.*;
 
 /**
- * Creado por: mmonteiro
+ * @author Miguel Monteiro Claveri
+ *
  * miguelmonteiroclaveri@gmail.com
  * github.com/mmonteiroc/Calculadora-Cientifica
- * Paquete PACKAGE_NAME
  * Proyecto Calculadora
  */
 
