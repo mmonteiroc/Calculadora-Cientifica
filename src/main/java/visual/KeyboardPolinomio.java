@@ -48,10 +48,8 @@ public class KeyboardPolinomio {
     private JButton multiplicarButton;
     private JButton dividirButton;
     private JButton raicesButton;
-    // Este atributo solo sera 0 o 1
-    // 0 si el input es el primero
-    // 1 si el input es el segundo
-    private int inputSeleccionado;
+    private JTextField input;
+
 
     /**
      * @param ig Interficie grafica que nos pasan
@@ -64,256 +62,140 @@ public class KeyboardPolinomio {
     KeyboardPolinomio(final InterficieGrafica ig) {
 
         // Inicializamos listener para saber que input ha sido seleccionado
-        inputSeleccionado = 0;
+        input = ig.Entrada;
         ig.Entrada.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                inputSeleccionado = 0;
+                input = ig.Entrada;
             }
         });
         ig.Entrada2.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                inputSeleccionado = 1;
+                input = ig.Entrada2;
             }
         });
 
-        if (inputSeleccionado == 0) {
-            // TODOS LOS NUMEROS QUE APRETEMOS SE AÑADIRAN AL INPUT 1
-            boton0.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada.setText(ig.Entrada.getText() + "0");
-                }
-            });
-            boton1.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada.setText(ig.Entrada.getText() + "1");
-                }
-            });
-            boton2.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada.setText(ig.Entrada.getText() + "2");
-                }
-            });
-            boton3.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada.setText(ig.Entrada.getText() + "3");
-                }
-            });
-            boton4.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada.setText(ig.Entrada.getText() + "4");
-                }
-            });
-            boton5.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada.setText(ig.Entrada.getText() + "5");
-                }
-            });
-            boton6.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada.setText(ig.Entrada.getText() + "6");
-                }
-            });
-            boton7.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada.setText(ig.Entrada.getText() + "7");
-                }
-            });
-            boton8.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada.setText(ig.Entrada.getText() + "8");
-                }
-            });
-            boton9.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada.setText(ig.Entrada.getText() + "9");
-                }
-            });
+        // TODOS LOS NUMEROS QUE APRETEMOS SE AÑADIRAN AL INPUT 1
+        boton0.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
-            // Operaciones
-            Suma.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada.setText(ig.Entrada.getText() + "+");
-                }
-            });
-            resta.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada.setText(ig.Entrada.getText() + "-");
-                }
-            });
-            multiplicacion.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada.setText(ig.Entrada.getText() + "*");
-                }
-            });
-            dividir.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada.setText(ig.Entrada.getText() + "/");
-                }
-            });
-            botonComa.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada.setText(ig.Entrada.getText() + ".");
-                }
-            });
-            parDch.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada.setText(ig.Entrada.getText() + ")");
-                }
-            });
-            parIzq.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada.setText(ig.Entrada.getText() + "(");
-                }
-            });
-            exponente.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada.setText(ig.Entrada.getText() + "^");
-                }
-            });
-            incognitaXButton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada.setText(ig.Entrada.getText() + "x");
-                }
-            });
-        } else if (inputSeleccionado == 1) {
-            boton0.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada2.setText(ig.Entrada2.getText() + "0");
-                }
-            });
-            boton1.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada2.setText(ig.Entrada2.getText() + "1");
-                }
-            });
-            boton2.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada2.setText(ig.Entrada2.getText() + "2");
-                }
-            });
-            boton3.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada2.setText(ig.Entrada2.getText() + "3");
-                }
-            });
-            boton4.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada2.setText(ig.Entrada2.getText() + "4");
-                }
-            });
-            boton5.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada2.setText(ig.Entrada2.getText() + "5");
-                }
-            });
-            boton6.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada2.setText(ig.Entrada2.getText() + "6");
-                }
-            });
-            boton7.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada2.setText(ig.Entrada2.getText() + "7");
-                }
-            });
-            boton8.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada2.setText(ig.Entrada2.getText() + "8");
-                }
-            });
-            boton9.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada2.setText(ig.Entrada2.getText() + "9");
-                }
-            });
+                input.setText(input.getText() + "0");
+            }
+        });
+        boton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                input.setText(input.getText() + "1");
+            }
+        });
+        boton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                input.setText(input.getText() + "2");
+            }
+        });
+        boton3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                input.setText(input.getText() + "3");
+            }
+        });
+        boton4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                input.setText(input.getText() + "4");
+            }
+        });
+        boton5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                input.setText(input.getText() + "5");
+            }
+        });
+        boton6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                input.setText(input.getText() + "6");
+            }
+        });
+        boton7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                input.setText(input.getText() + "7");
+            }
+        });
+        boton8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                input.setText(input.getText() + "8");
+            }
+        });
+        boton9.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                input.setText(input.getText() + "9");
+            }
+        });
 
-            // Operaciones
-            Suma.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada2.setText(ig.Entrada2.getText() + "+");
-                }
-            });
-            resta.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada2.setText(ig.Entrada2.getText() + "-");
-                }
-            });
-            multiplicacion.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada2.setText(ig.Entrada2.getText() + "*");
-                }
-            });
-            dividir.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada2.setText(ig.Entrada2.getText() + "/");
-                }
-            });
-            botonComa.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada2.setText(ig.Entrada2.getText() + ".");
-                }
-            });
-            parDch.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada2.setText(ig.Entrada2.getText() + ")");
-                }
-            });
-            parIzq.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada2.setText(ig.Entrada2.getText() + "(");
-                }
-            });
-            exponente.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada2.setText(ig.Entrada2.getText() + "^");
-                }
-            });
-            incognitaXButton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    ig.Entrada2.setText(ig.Entrada2.getText() + "x");
-                }
-            });
-        }
+        // Operaciones
+        Suma.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                input.setText(input.getText() + "+");
+            }
+        });
+        resta.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                input.setText(input.getText() + "-");
+            }
+        });
+        multiplicacion.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                input.setText(input.getText() + "*");
+            }
+        });
+        dividir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                input.setText(input.getText() + "/");
+            }
+        });
+        botonComa.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                input.setText(input.getText() + ".");
+            }
+        });
+        parDch.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                input.setText(input.getText() + ")");
+            }
+        });
+        parIzq.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                input.setText(input.getText() + "(");
+            }
+        });
+        exponente.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                input.setText(input.getText() + "^");
+            }
+        });
+        incognitaXButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                input.setText(input.getText() + "x");
+            }
+        });
+
+
 
 
 
@@ -395,6 +277,7 @@ public class KeyboardPolinomio {
         borrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                ig.Entrada2.setText("");
                 ig.Entrada.setText("");
                 ig.Salida.setText("Resultado");
             }
@@ -402,6 +285,7 @@ public class KeyboardPolinomio {
 
 
     }
+
 
     /**
      * @param s Array de Strings a guardar
