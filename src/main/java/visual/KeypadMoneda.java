@@ -48,6 +48,7 @@ public class KeypadMoneda {
      */
     KeypadMoneda(InterficieGrafica ig) {
         currency.addFirst(1d);
+
         textField1.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -150,6 +151,7 @@ public class KeypadMoneda {
             currency.addLast(1.50);
             currency.addLast(1.13);
         }
+        if (!textField1.getText().equals("")) calcCurrency();
     }
 
 
@@ -162,4 +164,8 @@ public class KeypadMoneda {
     public JPanel getPanelPrincipal() {
         return PanelPrincipal;
     }
+
 }
+
+
+
