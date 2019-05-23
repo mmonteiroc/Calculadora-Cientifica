@@ -63,7 +63,7 @@ public class KeyboardMediana {
                 for (String num : numeros) {
                     nums.addLast(Double.parseDouble(num));
                 }
-                ig.Salida.setText(calcVariança(nums, calcMediana(nums)) + " variança");
+                ig.Salida.setText(Math.sqrt(calcVariança(nums, calcMediana(nums))) + " variança");
 
                 InterficieGrafica.historico.addLast(new String[]{
                         ig.Entrada.getText(),
