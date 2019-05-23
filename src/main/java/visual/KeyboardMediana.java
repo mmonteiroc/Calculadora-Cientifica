@@ -77,7 +77,6 @@ public class KeyboardMediana {
         CLEARALLButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ig.Entrada2.setText("");
                 ig.Salida.setText("");
                 ig.Entrada.setText("");
             }

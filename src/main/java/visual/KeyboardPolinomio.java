@@ -224,7 +224,6 @@ public class KeyboardPolinomio {
                 saveStory(new String[]{
                         ig.Entrada.getText() + " x " + ig.Entrada2.getText(), resultado.toString(), "Polinomios"
                 });
-
             }
         });
         dividirButton.addActionListener(new ActionListener() {
