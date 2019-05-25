@@ -60,7 +60,7 @@ public class Historico {
                 String result = InterficieGrafica.historico.get(table1.getSelectedRow())[2];
 
                 // Decimal
-                if (tipoOperacion.equals("Decimal") || tipoOperacion.equals("Romano")) {
+                if (tipoOperacion.equals("Decimal") || tipoOperacion.equals("Romano") || tipoOperacion.equals("Fracciones") || tipoOperacion.equals("Mediana / Variança") || tipoOperacion.equals("Vectores") || tipoOperacion.equals("Binario")) {
                     ig.Entrada.setText(Operacion);
                     ig.Salida.setText(result);
                 } else if (tipoOperacion.equals("Polinomios")) {

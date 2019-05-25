@@ -92,6 +92,8 @@ public class KeyboardBinario {
                 long resutl = toDecimal(binary1) & toDecimal(binary2);
 
                 ig.Salida.setText(Long.toBinaryString(resutl));
+                saveOperation(ig);
+
             }
         });
 
@@ -105,6 +107,8 @@ public class KeyboardBinario {
                 long resutl = toDecimal(binary1) | toDecimal(binary2);
 
                 ig.Salida.setText(Long.toBinaryString(resutl));
+                saveOperation(ig);
+
             }
         });
 
@@ -118,6 +122,8 @@ public class KeyboardBinario {
                 long resutl = toDecimal(binary1) ^ toDecimal(binary2);
 
                 ig.Salida.setText(Long.toBinaryString(resutl));
+                saveOperation(ig);
+
             }
         });
 
@@ -128,6 +134,8 @@ public class KeyboardBinario {
                 long binary1 = Integer.parseInt(ig.Entrada.getText());
                 long resutl = toDecimal(~binary1);
                 ig.Salida.setText(Long.toBinaryString(resutl));
+                saveOperation(ig);
+
             }
         });
 
@@ -141,6 +149,24 @@ public class KeyboardBinario {
             }
         });
 
+
+    }
+
+    /**
+     * Este metodo, lo que hace es guardar en el historico las operaciones que se van realizando
+     *
+     * @param ig Interficie grafica
+     */
+    private void saveOperation(final InterficieGrafica ig) {
+
+        InterficieGrafica.historico.addLast(new String[]{
+                ig.Entrada.getText(),
+                ig.Entrada2.getText(),
+                ig.Salida.getText(),
+                "Binario"
+
+
+        });
 
     }
 
